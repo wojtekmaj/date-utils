@@ -244,3 +244,16 @@ export const getPreviousMonthEnd = makeGetEdgeOfNeighborMonth(getMonthEnd, -1);
 export const getNextMonthEnd = makeGetEdgeOfNeighborMonth(getMonthEnd, 1);
 
 export const getMonthRange = makeGetRange([getMonthStart, getMonthEnd]);
+
+/**
+ * Other
+ */
+
+/**
+ * Returns a number of days in a month of a given date.
+ *
+ * @param {Date} date Date.
+ */
+export function getDaysInMonth(date) {
+  return getDate(getMonthEnd(date));
+}

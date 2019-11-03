@@ -446,6 +446,20 @@ import { getMonthRange } from '@wojtekmaj/date-utils';
 getMonthRange(new Date(2019, 6, 15)); // [new Date(2019, 6, 1), new Date(2019, 6, 31, 23, 59, 999)
 ```
 
+### Other
+
+#### `getDaysInMonth()`
+
+Gets number of days in a month from a given date.
+
+##### Sample usage
+
+```js
+import { getDaysInMonth } from '@wojtekmaj/date-utils';
+
+getDaysInMonth(new Date(2019, 0, 15)); // 31
+```
+
 ## License
 
 The MIT License.

@@ -38,6 +38,8 @@ import {
   getPreviousMonthEnd,
   getNextMonthEnd,
   getMonthRange,
+
+  getDaysInMonth,
 } from './index';
 
 function testThrow(fn) {
@@ -581,4 +583,26 @@ describe('getMonthRange()', () => {
   });
 
   testThrow(getMonthRange);
+});
+
+/**
+ * Other
+ */
+
+describe('getDaysInMonth()', () => {
+  it('returns proper number of days in a month', () => {
+    const date1 = new Date(2019, 0, 1);
+    const date2 = new Date(2019, 1, 1);
+    const date3 = new Date(2019, 2, 1);
+
+    const result1 = getDaysInMonth(date1);
+    const result2 = getDaysInMonth(date2);
+    const result3 = getDaysInMonth(date3);
+
+    expect(result1).toBe(31);
+    expect(result2).toBe(28);
+    expect(result3).toBe(31);
+  });
+
+  testThrow(getDaysInMonth);
 });
