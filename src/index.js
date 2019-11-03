@@ -246,6 +246,35 @@ export const getNextMonthEnd = makeGetEdgeOfNeighborMonth(getMonthEnd, 1);
 export const getMonthRange = makeGetRange([getMonthStart, getMonthEnd]);
 
 /**
+ * Day
+ */
+
+function makeGetEdgeOfNeighborDay(getEdgeOfPeriod, defaultOffset) {
+  return function makeGetEdgeOfNeighborDayInternal(date, offset = defaultOffset) {
+    const year = getYear(date);
+    const month = getMonth(date);
+    const day = getDate(date) + offset;
+    const previousPeriod = new Date(year, month, day);
+    return getEdgeOfPeriod(previousPeriod);
+  };
+}
+
+export function getDayStart(date) {
+  const year = getYear(date);
+  const month = getMonth(date);
+  const day = getDate(date);
+  return new Date(year, month, day);
+}
+export const getPreviousDayStart = makeGetEdgeOfNeighborDay(getDayStart, -1);
+export const getNextDayStart = makeGetEdgeOfNeighborDay(getDayStart, 1);
+
+export const getDayEnd = makeGetEnd(getNextDayStart);
+export const getPreviousDayEnd = makeGetEdgeOfNeighborDay(getDayEnd, -1);
+export const getNextDayEnd = makeGetEdgeOfNeighborDay(getDayEnd, 1);
+
+export const getDayRange = makeGetRange([getDayStart, getDayEnd]);
+
+/**
  * Other
  */
 

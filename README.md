@@ -446,6 +446,92 @@ import { getMonthRange } from '@wojtekmaj/date-utils';
 getMonthRange(new Date(2019, 6, 15)); // [new Date(2019, 6, 1), new Date(2019, 6, 31, 23, 59, 999)
 ```
 
+### Day-related getters
+
+#### `getDayStart()`
+
+Gets day start date from a given date.
+
+##### Sample usage
+
+```js
+import { getDayStart } from '@wojtekmaj/date-utils';
+
+getDayStart(new Date(2019, 6, 15, 12)); // new Date(2019, 6, 15)
+```
+
+#### `getDayEnd()`
+
+Gets day start date from a given date.
+
+##### Sample usage
+
+```js
+import { getDayEnd } from '@wojtekmaj/date-utils';
+
+getDayEnd(new Date(2019, 6, 15, 12)); // new Date(2019, 6, 15, 23, 59, 999)
+```
+
+#### `getPreviousDayStart()`
+
+Gets previous day start date from a given date.
+
+##### Sample usage
+
+```js
+import { getPreviousDayStart } from '@wojtekmaj/date-utils';
+
+getPreviousDayStart(new Date(2019, 6, 15, 12)); // new Date(2019, 6, 14)
+```
+
+#### `getPreviousDayEnd()`
+
+Gets day start date from a given date.
+
+##### Sample usage
+
+```js
+import { getPreviousDayEnd } from '@wojtekmaj/date-utils';
+
+getPreviousDayEnd(new Date(2019, 6, 15, 12)); // new Date(2019, 6, 14, 23, 59, 999)
+```
+
+#### `getNextDayStart()`
+
+Gets next day start date from a given date.
+
+##### Sample usage
+
+```js
+import { getNextDayStart } from '@wojtekmaj/date-utils';
+
+getNextDayStart(new Date(2019, 6, 15, 12)); // new Date(2019, 6, 16)
+```
+
+#### `getNextDayEnd()`
+
+Gets next day start date from a given date.
+
+##### Sample usage
+
+```js
+import { getNextDayEnd } from '@wojtekmaj/date-utils';
+
+getNextDayEnd(new Date(2019, 6, 15, 12)); // new Date(2019, 6, 16, 23, 59, 999)
+```
+
+#### `getDayRange()`
+
+Gets day range from a given date. Returns an array of values equal to the ones returned by `getDayStart()` and `getDayEnd()`.
+
+##### Sample usage
+
+```js
+import { getDayRange } from '@wojtekmaj/date-utils';
+
+getDayRange(new Date(2019, 6, 15, 12)); // [new Date(2019, 6, 15), new Date(2019, 6, 15, 23, 59, 999)
+```
+
 ### Other
 
 #### `getDaysInMonth()`

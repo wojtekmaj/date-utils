@@ -39,6 +39,14 @@ import {
   getNextMonthEnd,
   getMonthRange,
 
+  getDayStart,
+  getPreviousDayStart,
+  getNextDayStart,
+  getDayEnd,
+  getPreviousDayEnd,
+  getNextDayEnd,
+  getDayRange,
+
   getDaysInMonth,
 } from './index';
 
@@ -583,6 +591,104 @@ describe('getMonthRange()', () => {
   });
 
   testThrow(getMonthRange);
+});
+
+/**
+ * Day
+ */
+
+describe('getDayStart()', () => {
+  it('returns proper beginning of the day', () => {
+    const date = new Date(2019, 6, 15, 12);
+    const dayStartDate = new Date(2019, 6, 15);
+
+    const result = getDayStart(date);
+
+    expect(result).toEqual(dayStartDate);
+  });
+
+  testThrow(getDayStart);
+});
+
+describe('getPreviousDayStart()', () => {
+  it('returns proper start of the previous day', () => {
+    const date = new Date(2019, 6, 15, 12);
+    const previousDayStartDate = new Date(2019, 6, 14);
+
+    const result = getPreviousDayStart(date);
+
+    expect(result).toEqual(previousDayStartDate);
+  });
+
+  testThrow(getPreviousDayStart);
+});
+
+describe('getNextDayStart()', () => {
+  it('returns proper start of the next day', () => {
+    const date = new Date(2019, 6, 15, 12);
+    const nextDayStartDate = new Date(2019, 6, 16);
+
+    const result = getNextDayStart(date);
+
+    expect(result).toEqual(nextDayStartDate);
+  });
+
+  testThrow(getNextDayStart);
+});
+
+describe('getDayEnd()', () => {
+  it('returns proper end of the day', () => {
+    const date = new Date(2019, 6, 15, 12);
+    const dayEndDate = new Date(2019, 6, 15, 23, 59, 59, 999);
+
+    const result = getDayEnd(date);
+
+    expect(result).toEqual(dayEndDate);
+  });
+
+  testThrow(getDayEnd);
+});
+
+
+describe('getPreviousDayEnd()', () => {
+  it('returns proper end of the previous day', () => {
+    const date = new Date(2019, 6, 15, 12);
+    const previousDayEndDate = new Date(2019, 6, 14, 23, 59, 59, 999);
+
+    const result = getPreviousDayEnd(date);
+
+    expect(result).toEqual(previousDayEndDate);
+  });
+
+  testThrow(getPreviousDayEnd);
+});
+
+describe('getNextDayEnd()', () => {
+  it('returns proper end of the next day', () => {
+    const date = new Date(2019, 6, 15, 12);
+    const nextDayEndDate = new Date(2019, 6, 16, 23, 59, 59, 999);
+
+    const result = getNextDayEnd(date);
+
+    expect(result).toEqual(nextDayEndDate);
+  });
+
+  testThrow(getNextDayEnd);
+});
+
+describe('getDayRange', () => {
+  it('returns proper day date range', () => {
+    const date = new Date(2019, 6, 15, 12);
+    const dayStartDate = new Date(2019, 6, 15);
+    const dayEndDate = new Date(2019, 6, 15, 23, 59, 59, 999);
+
+    const result = getDayRange(date);
+
+    expect(result).toHaveLength(2);
+    expect(result).toEqual([dayStartDate, dayEndDate]);
+  });
+
+  testThrow(getDayRange);
 });
 
 /**
