@@ -286,3 +286,47 @@ export const getDayRange = makeGetRange([getDayStart, getDayEnd]);
 export function getDaysInMonth(date) {
   return getDate(getMonthEnd(date));
 }
+
+function padStart(num) {
+  return `0${num}`.slice(-2);
+}
+
+export function getHoursMinutes(date) {
+  const hours = padStart(getHours(date));
+  const minutes = padStart(getMinutes(date));
+
+  return `${hours}:${minutes}`;
+}
+
+export function getHoursMinutesSeconds(date) {
+  const hours = padStart(getHours(date));
+  const minutes = padStart(getMinutes(date));
+  const seconds = padStart(getSeconds(date));
+
+  return `${hours}:${minutes}:${seconds}`;
+}
+
+/**
+ * Returns local month in ISO-like format (YYYY-MM).
+ */
+export function getISOLocalMonth(date) {
+  const year = getYear(date);
+  const month = padStart(getMonthHuman(date));
+
+  return `${year}-${month}`;
+}
+
+/**
+ * Returns local date in ISO-like format (YYYY-MM-DD).
+ */
+export function getISOLocalDate(date) {
+  const year = getYear(date);
+  const month = padStart(getMonthHuman(date));
+  const day = padStart(getDate(date));
+
+  return `${year}-${month}-${day}`;
+}
+
+export function getISOLocalDateTime(date) {
+  return `${getISOLocalDate(date)}T${getHoursMinutesSeconds(date)}`;
+}

@@ -48,6 +48,11 @@ import {
   getDayRange,
 
   getDaysInMonth,
+  getHoursMinutes,
+  getHoursMinutesSeconds,
+  getISOLocalMonth,
+  getISOLocalDate,
+  getISOLocalDateTime,
 } from './index';
 
 function testThrow(fn) {
@@ -711,4 +716,108 @@ describe('getDaysInMonth()', () => {
   });
 
   testThrow(getDaysInMonth);
+});
+
+describe('getHoursMinutes', () => {
+  it('returns proper hour and minute for a given date', () => {
+    const date = new Date(2017, 0, 1, 16, 4);
+
+    const hoursMinutes = getHoursMinutes(date);
+
+    expect(hoursMinutes).toBe('16:04');
+  });
+
+  it('returns proper hour and minute for a given string of hour and minute', () => {
+    const date = '16:04';
+
+    const hoursMinutes = getHoursMinutes(date);
+
+    expect(hoursMinutes).toBe('16:04');
+  });
+
+  it('returns proper hour and minute for a given string of hour, minute and second', () => {
+    const date = '16:04:08';
+
+    const hoursMinutes = getHoursMinutes(date);
+
+    expect(hoursMinutes).toBe('16:04');
+  });
+
+  it('throws an error when given nonsense data', () => {
+    const text = 'wololo';
+    const flag = true;
+
+    expect(() => getHoursMinutes(text)).toThrow();
+    expect(() => getHoursMinutes(flag)).toThrow();
+  });
+});
+
+describe('getHoursMinutesSeconds', () => {
+  it('returns proper hour, minute and second for a given date', () => {
+    const date = new Date(2017, 0, 1, 16, 4, 41);
+
+    const hoursMinutesSeconds = getHoursMinutesSeconds(date);
+
+    expect(hoursMinutesSeconds).toBe('16:04:41');
+  });
+
+  it('returns proper hour, minute and second for a given string of hour and minute', () => {
+    const date = '16:04';
+
+    const hoursMinutesSeconds = getHoursMinutesSeconds(date);
+
+    expect(hoursMinutesSeconds).toBe('16:04:00');
+  });
+
+  it('returns proper hour, minute and second for a given string of hour, minute and second', () => {
+    const date = '16:04:08';
+
+    const hoursMinutesSeconds = getHoursMinutesSeconds(date);
+
+    expect(hoursMinutesSeconds).toBe('16:04:08');
+  });
+
+  it('throws an error when given nonsense data', () => {
+    const text = 'wololo';
+    const flag = true;
+
+    expect(() => getHoursMinutesSeconds(text)).toThrow();
+    expect(() => getHoursMinutesSeconds(flag)).toThrow();
+  });
+});
+
+describe('getISOLocalMonth()', () => {
+  it('returns proper ISO month', () => {
+    const date = new Date(2017, 0, 1);
+
+    const ISOMonth = getISOLocalMonth(date);
+
+    expect(ISOMonth).toBe('2017-01');
+  });
+
+  testThrow(getISOLocalMonth);
+});
+
+describe('getISOLocalDate()', () => {
+  it('returns proper ISO date', () => {
+    const date = new Date(2017, 0, 1);
+
+    const ISODate = getISOLocalDate(date);
+
+    expect(ISODate).toBe('2017-01-01');
+  });
+
+  testThrow(getISOLocalDate);
+});
+
+describe('getISOLocalDateTime()', () => {
+  it('returns proper ISO date and time', () => {
+    const date = new Date(2017, 0, 1, 16, 4, 41);
+
+    const ISODate = getISOLocalDateTime(date);
+
+    expect(ISODate).toBe('2017-01-01T16:04:41');
+  });
+
+  testThrow(getISOLocalDateTime);
 });
