@@ -62,6 +62,46 @@ import { getDate } from '@wojtekmaj/date-utils';
 getDate(new Date(2019, 0, 15); // 15
 ```
 
+#### `getHours()`
+
+Gets hours from a given date or string.
+
+##### Sample usage
+
+```js
+import { getHours } from '@wojtekmaj/date-utils';
+
+getHours(new Date(2019, 0, 15, 22, 41, 56); // 22
+getHours('22:41:56'); // 22
+```
+
+#### `getMinutes()`
+
+Gets minutes from a given date or string.
+
+##### Sample usage
+
+```js
+import { getMinutes } from '@wojtekmaj/date-utils';
+
+getMinutes(new Date(2019, 0, 15, 22, 41, 56); // 41
+getMinutes('22:41:56'); // 41
+```
+
+#### `getSeconds()`
+
+Gets seconds from a given date or string.
+
+##### Sample usage
+
+```js
+import { getSeconds } from '@wojtekmaj/date-utils';
+
+getSeconds(new Date(2019, 0, 15, 22, 41, 56); // 56
+getSeconds('22:41:56'); // 56
+getSeconds('22:41:56.321'); // 56
+```
+
 ### Century-related getters
 
 #### `getCenturyStart()`

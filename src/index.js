@@ -88,6 +88,84 @@ export function getDate(date) {
 }
 
 /**
+ * Gets hours from date.
+ *
+ * @param {Date|string} date Date to get hours from.
+ */
+export function getHours(date) {
+  if (date instanceof Date) {
+    return date.getHours();
+  }
+
+  if (typeof date === 'string') {
+    const datePieces = date.split(':');
+
+    if (datePieces.length >= 2) {
+      const hoursString = datePieces[0];
+      const hours = parseInt(hoursString, 10);
+
+      if (!isNaN(hours)) {
+        return hours;
+      }
+    }
+  }
+
+  throw new Error(`Failed to get hours from date: ${date}.`);
+}
+
+/**
+ * Gets minutes from date.
+ *
+ * @param {Date|string} date Date to get minutes from.
+ */
+export function getMinutes(date) {
+  if (date instanceof Date) {
+    return date.getMinutes();
+  }
+
+  if (typeof date === 'string') {
+    const datePieces = date.split(':');
+
+    if (datePieces.length >= 2) {
+      const minutesString = datePieces[1] || 0;
+      const minutes = parseInt(minutesString, 10);
+
+      if (!isNaN(minutes)) {
+        return minutes;
+      }
+    }
+  }
+
+  throw new Error(`Failed to get minutes from date: ${date}.`);
+}
+
+/**
+ * Gets seconds from date.
+ *
+ * @param {Date|string} date Date to get seconds from.
+ */
+export function getSeconds(date) {
+  if (date instanceof Date) {
+    return date.getSeconds();
+  }
+
+  if (typeof date === 'string') {
+    const datePieces = date.split(':');
+
+    if (datePieces.length >= 2) {
+      const secondsString = datePieces[2] || 0;
+      const seconds = parseInt(secondsString, 10);
+
+      if (!isNaN(seconds)) {
+        return seconds;
+      }
+    }
+  }
+
+  throw new Error(`Failed to get seconds from date: ${date}.`);
+}
+
+/**
  * Century
  */
 

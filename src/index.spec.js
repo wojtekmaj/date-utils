@@ -3,6 +3,9 @@ import {
   getMonth,
   getMonthHuman,
   getDate,
+  getHours,
+  getMinutes,
+  getSeconds,
 
   getCenturyStart,
   getPreviousCenturyStart,
@@ -114,6 +117,82 @@ describe('getDate()', () => {
   });
 
   testThrow(getDate);
+});
+
+describe('getHours()', () => {
+  it('returns proper hours from Date', () => {
+    const date = new Date(2019, 0, 1, 22, 41, 56);
+
+    const result = getHours(date);
+
+    expect(result).toBe(22);
+  });
+
+  it('returns proper hours from string', () => {
+    const date = '22:41:56';
+
+    const result = getHours(date);
+
+    expect(result).toBe(22);
+  });
+
+  testThrow(getHours);
+});
+
+describe('getMinutes()', () => {
+  it('returns proper minutes from Date', () => {
+    const date = new Date(2019, 0, 1, 22, 41, 56);
+
+    const result = getMinutes(date);
+
+    expect(result).toBe(41);
+  });
+
+  it('returns proper minutes from string', () => {
+    const date = '22:41:56';
+
+    const result = getMinutes(date);
+
+    expect(result).toBe(41);
+  });
+
+  testThrow(getMinutes);
+});
+
+describe('getSeconds()', () => {
+  it('returns proper seconds from Date', () => {
+    const date = new Date(2019, 0, 1, 22, 41, 56);
+
+    const result = getSeconds(date);
+
+    expect(result).toBe(56);
+  });
+
+  it('returns proper seconds from string', () => {
+    const date = '22:41:56';
+
+    const result = getSeconds(date);
+
+    expect(result).toBe(56);
+  });
+
+  it('returns proper seconds from string without seconds', () => {
+    const date = '22:41';
+
+    const result = getSeconds(date);
+
+    expect(result).toBe(0);
+  });
+
+  it('returns proper seconds from string with milliseconds', () => {
+    const date = '22:41:56.321';
+
+    const result = getSeconds(date);
+
+    expect(result).toBe(56);
+  });
+
+  testThrow(getSeconds);
 });
 
 /**
