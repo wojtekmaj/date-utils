@@ -172,7 +172,10 @@ export function getSeconds(date) {
 export function getCenturyStart(date) {
   const year = getYear(date);
   const centuryStartYear = year + ((-year + 1) % 100);
-  return new Date(centuryStartYear, 0, 1);
+  const centuryStartDate = new Date();
+  centuryStartDate.setFullYear(centuryStartYear, 0, 1);
+  centuryStartDate.setHours(0, 0, 0, 0);
+  return centuryStartDate;
 }
 export const getPreviousCenturyStart = makeGetEdgeOfNeighbor(getYear, getCenturyStart, -100);
 export const getNextCenturyStart = makeGetEdgeOfNeighbor(getYear, getCenturyStart, 100);
@@ -190,7 +193,10 @@ export const getCenturyRange = makeGetRange([getCenturyStart, getCenturyEnd]);
 export function getDecadeStart(date) {
   const year = getYear(date);
   const decadeStartYear = year + ((-year + 1) % 10);
-  return new Date(decadeStartYear, 0, 1);
+  const decadeStartDate = new Date();
+  decadeStartDate.setFullYear(decadeStartYear, 0, 1);
+  decadeStartDate.setHours(0, 0, 0, 0);
+  return decadeStartDate;
 }
 export const getPreviousDecadeStart = makeGetEdgeOfNeighbor(getYear, getDecadeStart, -10);
 export const getNextDecadeStart = makeGetEdgeOfNeighbor(getYear, getDecadeStart, 10);
@@ -207,7 +213,10 @@ export const getDecadeRange = makeGetRange([getDecadeStart, getDecadeEnd]);
 
 export function getYearStart(date) {
   const year = getYear(date);
-  return new Date(year, 0, 1);
+  const yearStartDate = new Date();
+  yearStartDate.setFullYear(year, 0, 1);
+  yearStartDate.setHours(0, 0, 0, 0);
+  return yearStartDate;
 }
 export const getPreviousYearStart = makeGetEdgeOfNeighbor(getYear, getYearStart, -1);
 export const getNextYearStart = makeGetEdgeOfNeighbor(getYear, getYearStart, 1);
@@ -226,7 +235,9 @@ function makeGetEdgeOfNeighborMonth(getEdgeOfPeriod, defaultOffset) {
   return function makeGetEdgeOfNeighborMonthInternal(date, offset = defaultOffset) {
     const year = getYear(date);
     const month = getMonth(date) + offset;
-    const previousPeriod = new Date(year, month, 1);
+    const previousPeriod = new Date();
+    previousPeriod.setFullYear(year, month, 1);
+    previousPeriod.setHours(0, 0, 0, 0);
     return getEdgeOfPeriod(previousPeriod);
   };
 }
@@ -234,7 +245,10 @@ function makeGetEdgeOfNeighborMonth(getEdgeOfPeriod, defaultOffset) {
 export function getMonthStart(date) {
   const year = getYear(date);
   const month = getMonth(date);
-  return new Date(year, month, 1);
+  const monthStartDate = new Date();
+  monthStartDate.setFullYear(year, month, 1);
+  monthStartDate.setHours(0, 0, 0, 0);
+  return monthStartDate;
 }
 export const getPreviousMonthStart = makeGetEdgeOfNeighborMonth(getMonthStart, -1);
 export const getNextMonthStart = makeGetEdgeOfNeighborMonth(getMonthStart, 1);
@@ -254,7 +268,9 @@ function makeGetEdgeOfNeighborDay(getEdgeOfPeriod, defaultOffset) {
     const year = getYear(date);
     const month = getMonth(date);
     const day = getDate(date) + offset;
-    const previousPeriod = new Date(year, month, day);
+    const previousPeriod = new Date();
+    previousPeriod.setFullYear(year, month, day);
+    previousPeriod.setHours(0, 0, 0, 0);
     return getEdgeOfPeriod(previousPeriod);
   };
 }
@@ -263,7 +279,10 @@ export function getDayStart(date) {
   const year = getYear(date);
   const month = getMonth(date);
   const day = getDate(date);
-  return new Date(year, month, day);
+  const dayStartDate = new Date();
+  dayStartDate.setFullYear(year, month, day);
+  dayStartDate.setHours(0, 0, 0, 0);
+  return dayStartDate;
 }
 export const getPreviousDayStart = makeGetEdgeOfNeighborDay(getDayStart, -1);
 export const getNextDayStart = makeGetEdgeOfNeighborDay(getDayStart, 1);

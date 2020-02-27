@@ -224,6 +224,19 @@ describe('getCenturyStart()', () => {
     expect(result).toEqual(centuryStartDate);
   });
 
+  it('returns proper start of the century for year < 100', () => {
+    const date = new Date();
+    date.setFullYear(19, 0, 1);
+    date.setHours(0, 0, 0, 0);
+    const centuryStartDate = new Date();
+    centuryStartDate.setFullYear(1, 0, 1);
+    centuryStartDate.setHours(0, 0, 0, 0);
+
+    const result = getCenturyStart(date);
+
+    expect(result).toEqual(centuryStartDate);
+  });
+
   testThrow(getCenturyStart);
 });
 
@@ -257,6 +270,19 @@ describe('getCenturyEnd()', () => {
   it('returns proper end of the century', () => {
     const date = new Date(2019, 0, 1);
     const centuryEndDate = new Date(2100, 11, 31, 23, 59, 59, 999);
+
+    const result = getCenturyEnd(date);
+
+    expect(result).toEqual(centuryEndDate);
+  });
+
+  it('returns proper end of the century for year < 100', () => {
+    const date = new Date();
+    date.setFullYear(19, 0, 1);
+    date.setHours(0, 0, 0, 0);
+    const centuryEndDate = new Date();
+    centuryEndDate.setFullYear(100, 11, 31);
+    centuryEndDate.setHours(23, 59, 59, 999);
 
     const result = getCenturyEnd(date);
 
@@ -321,6 +347,19 @@ describe('getDecadeStart()', () => {
     expect(result).toEqual(decadeStartDate);
   });
 
+  it('returns proper start of the decade for year < 100', () => {
+    const date = new Date();
+    date.setFullYear(19, 0, 1);
+    date.setHours(0, 0, 0, 0);
+    const decadeStartDate = new Date();
+    decadeStartDate.setFullYear(11, 0, 1);
+    decadeStartDate.setHours(0, 0, 0, 0);
+
+    const result = getDecadeStart(date);
+
+    expect(result).toEqual(decadeStartDate);
+  });
+
   testThrow(getDecadeStart);
 });
 
@@ -354,6 +393,19 @@ describe('getDecadeEnd()', () => {
   it('returns proper end of the decade', () => {
     const date = new Date(2019, 0, 1);
     const decadeEndDate = new Date(2020, 11, 31, 23, 59, 59, 999);
+
+    const result = getDecadeEnd(date);
+
+    expect(result).toEqual(decadeEndDate);
+  });
+
+  it('returns proper end of the decade for year < 100', () => {
+    const date = new Date();
+    date.setFullYear(19, 0, 1);
+    date.setHours(0, 0, 0, 0);
+    const decadeEndDate = new Date();
+    decadeEndDate.setFullYear(20, 11, 31);
+    decadeEndDate.setHours(23, 59, 59, 999);
 
     const result = getDecadeEnd(date);
 
@@ -418,6 +470,19 @@ describe('getYearStart()', () => {
     expect(result).toEqual(yearStartDate);
   });
 
+  it('returns proper start of the year for year < 100', () => {
+    const date = new Date();
+    date.setFullYear(19, 6, 1);
+    date.setHours(0, 0, 0, 0);
+    const yearStartDate = new Date();
+    yearStartDate.setFullYear(19, 0, 1);
+    yearStartDate.setHours(0, 0, 0, 0);
+
+    const result = getYearStart(date);
+
+    expect(result).toEqual(yearStartDate);
+  });
+
   testThrow(getYearStart);
 });
 
@@ -451,6 +516,19 @@ describe('getYearEnd()', () => {
   it('returns proper end of the year', () => {
     const date = new Date(2019, 6, 1);
     const yearEndDate = new Date(2019, 11, 31, 23, 59, 59, 999);
+
+    const result = getYearEnd(date);
+
+    expect(result).toEqual(yearEndDate);
+  });
+
+  it('returns proper end of the year for year < 100', () => {
+    const date = new Date();
+    date.setFullYear(19, 0, 1);
+    date.setHours(0, 0, 0, 0);
+    const yearEndDate = new Date();
+    yearEndDate.setFullYear(19, 11, 31);
+    yearEndDate.setHours(23, 59, 59, 999);
 
     const result = getYearEnd(date);
 
@@ -515,6 +593,19 @@ describe('getMonthStart()', () => {
     expect(result).toEqual(monthStartDate);
   });
 
+  it('returns proper start of the month for year < 100', () => {
+    const date = new Date();
+    date.setFullYear(19, 6, 15);
+    date.setHours(0, 0, 0, 0);
+    const monthStartDate = new Date();
+    monthStartDate.setFullYear(19, 6, 1);
+    monthStartDate.setHours(0, 0, 0, 0);
+
+    const result = getMonthStart(date);
+
+    expect(result).toEqual(monthStartDate);
+  });
+
   testThrow(getMonthStart);
 });
 
@@ -548,6 +639,19 @@ describe('getMonthEnd()', () => {
   it('returns proper end of the month', () => {
     const date = new Date(2019, 6, 15);
     const monthEndDate = new Date(2019, 6, 31, 23, 59, 59, 999);
+
+    const result = getMonthEnd(date);
+
+    expect(result).toEqual(monthEndDate);
+  });
+
+  it('returns proper end of the month for year < 100', () => {
+    const date = new Date();
+    date.setFullYear(19, 6, 15);
+    date.setHours(0, 0, 0, 0);
+    const monthEndDate = new Date();
+    monthEndDate.setFullYear(19, 6, 31);
+    monthEndDate.setHours(23, 59, 59, 999);
 
     const result = getMonthEnd(date);
 
@@ -612,6 +716,19 @@ describe('getDayStart()', () => {
     expect(result).toEqual(dayStartDate);
   });
 
+  it('returns proper beginning of the day for year < 100', () => {
+    const date = new Date();
+    date.setFullYear(19, 6, 15, 12);
+    date.setHours(0, 0, 0, 0);
+    const dayStartDate = new Date();
+    dayStartDate.setFullYear(19, 6, 15);
+    dayStartDate.setHours(0, 0, 0, 0);
+
+    const result = getDayStart(date);
+
+    expect(result).toEqual(dayStartDate);
+  });
+
   testThrow(getDayStart);
 });
 
@@ -645,6 +762,19 @@ describe('getDayEnd()', () => {
   it('returns proper end of the day', () => {
     const date = new Date(2019, 6, 15, 12);
     const dayEndDate = new Date(2019, 6, 15, 23, 59, 59, 999);
+
+    const result = getDayEnd(date);
+
+    expect(result).toEqual(dayEndDate);
+  });
+
+  it('returns proper end of the day for year < 100', () => {
+    const date = new Date();
+    date.setFullYear(19, 6, 15);
+    date.setHours(0, 0, 0, 0);
+    const dayEndDate = new Date();
+    dayEndDate.setFullYear(19, 6, 15);
+    dayEndDate.setHours(23, 59, 59, 999);
 
     const result = getDayEnd(date);
 
