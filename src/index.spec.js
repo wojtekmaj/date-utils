@@ -353,11 +353,11 @@ describe('getNextDecadeStart()', () => {
 describe('getDecadeEnd()', () => {
   it('returns proper end of the decade', () => {
     const date = new Date(2019, 0, 1);
-    const DecadeEndDate = new Date(2020, 11, 31, 23, 59, 59, 999);
+    const decadeEndDate = new Date(2020, 11, 31, 23, 59, 59, 999);
 
     const result = getDecadeEnd(date);
 
-    expect(result).toEqual(DecadeEndDate);
+    expect(result).toEqual(decadeEndDate);
   });
 
   testThrow(getDecadeEnd);
