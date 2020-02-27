@@ -1,6 +1,6 @@
 {
   "name": "@wojtekmaj/date-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of date-related utilities.",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
