@@ -306,8 +306,8 @@ export function getDaysInMonth(date) {
   return getDate(getMonthEnd(date));
 }
 
-function padStart(num) {
-  return `0${num}`.slice(-2);
+function padStart(num, val = 2) {
+  return `0000${num}`.slice(-val);
 }
 
 export function getHoursMinutes(date) {
@@ -329,7 +329,7 @@ export function getHoursMinutesSeconds(date) {
  * Returns local month in ISO-like format (YYYY-MM).
  */
 export function getISOLocalMonth(date) {
-  const year = getYear(date);
+  const year = padStart(getYear(date), 4);
   const month = padStart(getMonthHuman(date));
 
   return `${year}-${month}`;
@@ -339,7 +339,7 @@ export function getISOLocalMonth(date) {
  * Returns local date in ISO-like format (YYYY-MM-DD).
  */
 export function getISOLocalDate(date) {
-  const year = getYear(date);
+  const year = padStart(getYear(date), 4);
   const month = padStart(getMonthHuman(date));
   const day = padStart(getDate(date));
 

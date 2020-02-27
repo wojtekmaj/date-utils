@@ -918,11 +918,21 @@ describe('getHoursMinutesSeconds', () => {
 
 describe('getISOLocalMonth()', () => {
   it('returns proper ISO month', () => {
-    const date = new Date(2017, 0, 1);
+    const date = new Date(2019, 0, 1);
 
     const ISOMonth = getISOLocalMonth(date);
 
-    expect(ISOMonth).toBe('2017-01');
+    expect(ISOMonth).toBe('2019-01');
+  });
+
+  it('returns proper ISO date for year < 100', () => {
+    const date = new Date();
+    date.setFullYear(19, 0, 1);
+    date.setHours(0, 0, 0, 0);
+
+    const ISODate = getISOLocalMonth(date);
+
+    expect(ISODate).toBe('0019-01');
   });
 
   testThrow(getISOLocalMonth);
@@ -930,11 +940,21 @@ describe('getISOLocalMonth()', () => {
 
 describe('getISOLocalDate()', () => {
   it('returns proper ISO date', () => {
-    const date = new Date(2017, 0, 1);
+    const date = new Date(2019, 0, 1);
 
     const ISODate = getISOLocalDate(date);
 
-    expect(ISODate).toBe('2017-01-01');
+    expect(ISODate).toBe('2019-01-01');
+  });
+
+  it('returns proper ISO date for year < 100', () => {
+    const date = new Date();
+    date.setFullYear(19, 0, 1);
+    date.setHours(0, 0, 0, 0);
+
+    const ISODate = getISOLocalDate(date);
+
+    expect(ISODate).toBe('0019-01-01');
   });
 
   testThrow(getISOLocalDate);
@@ -947,6 +967,16 @@ describe('getISOLocalDateTime()', () => {
     const ISODate = getISOLocalDateTime(date);
 
     expect(ISODate).toBe('2017-01-01T16:04:41');
+  });
+
+  it('returns proper ISO date for year < 100', () => {
+    const date = new Date();
+    date.setFullYear(19, 0, 1);
+    date.setHours(16, 4, 41, 0);
+
+    const ISODate = getISOLocalDateTime(date);
+
+    expect(ISODate).toBe('0019-01-01T16:04:41');
   });
 
   testThrow(getISOLocalDateTime);
