@@ -45,9 +45,9 @@ Gets human-readable month number from a given date. For example, returns 1 for J
 ##### Sample usage
 
 ```js
-import { getMonth } from '@wojtekmaj/date-utils';
+import { getMonthHuman } from '@wojtekmaj/date-utils';
 
-getMonth(new Date(2019, 0, 1); // 1
+getMonthHuman(new Date(2019, 0, 1); // 1
 ```
 
 #### `getDate()`
