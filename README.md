@@ -7,7 +7,7 @@ A collection of date-related utilities.
 * Do stuff with it!
     ```js
     const now = new Date();
-    const beginOfCentury = getBeginOfCentury(now);
+    const startOfCentury = getCenturyStart(now);
     ```
 
 ## User guide
