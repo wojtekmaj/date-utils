@@ -3,7 +3,7 @@ A collection of date-related utilities.
 
 ## tl;dr
 * Install by executing `npm install @wojtekmaj/date-utils` or `yarn add @wojtekmaj/date-utils`.
-* Import by adding `import * as dateUtils from '@wojtekmaj/date-utils`.
+* Import by adding `import * as dateUtils from '@wojtekmaj/date-utils'`.
 * Do stuff with it!
     ```js
     const now = new Date();
