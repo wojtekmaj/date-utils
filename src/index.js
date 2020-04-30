@@ -310,6 +310,9 @@ function padStart(num, val = 2) {
   return `0000${num}`.slice(-val);
 }
 
+/**
+ * Returns local hours and minutes (hh:mm).
+ */
 export function getHoursMinutes(date) {
   const hours = padStart(getHours(date));
   const minutes = padStart(getMinutes(date));
@@ -317,6 +320,9 @@ export function getHoursMinutes(date) {
   return `${hours}:${minutes}`;
 }
 
+/**
+ * Returns local hours, minutes and seconds (hh:mm:ss).
+ */
 export function getHoursMinutesSeconds(date) {
   const hours = padStart(getHours(date));
   const minutes = padStart(getMinutes(date));
@@ -346,6 +352,9 @@ export function getISOLocalDate(date) {
   return `${year}-${month}-${day}`;
 }
 
+/**
+ * Returns local date & time in ISO-like format (YYYY-MM-DDThh:mm:ss).
+ */
 export function getISOLocalDateTime(date) {
   return `${getISOLocalDate(date)}T${getHoursMinutesSeconds(date)}`;
 }

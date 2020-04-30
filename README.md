@@ -546,6 +546,66 @@ import { getDaysInMonth } from '@wojtekmaj/date-utils';
 getDaysInMonth(new Date(2019, 0, 15)); // 31
 ```
 
+#### `getHoursMinutes()`
+
+Returns local hours and minutes (hh:mm).
+
+##### Sample usage
+
+```js
+import { getHoursMinutes } from '@wojtekmaj/date-utils';
+
+getHoursMinutes(new Date(2019, 0, 15, 16, 4)); // "16:04"
+```
+
+#### `getHoursMinutesSeconds()`
+
+Returns local hours, minutes and seconds (hh:mm:ss).
+
+##### Sample usage
+
+```js
+import { getHoursMinutesSeconds } from '@wojtekmaj/date-utils';
+
+getHoursMinutesSeconds(new Date(2019, 0, 15, 16, 4, 41)); // "16:04:41"
+```
+
+#### `getISOLocalMonth()`
+
+Returns local month in ISO-like format (YYYY-MM).
+
+##### Sample usage
+
+```js
+import { getISOLocalMonth } from '@wojtekmaj/date-utils';
+
+getISOLocalMonth(new Date(2019, 0, 15)); // "2019-01"
+```
+
+#### `getISOLocalDate()`
+
+Returns local date in ISO-like format (YYYY-MM-DD).
+
+##### Sample usage
+
+```js
+import { getISOLocalDate } from '@wojtekmaj/date-utils';
+
+getISOLocalDate(new Date(2019, 0, 15)); // "2019-01-15"
+```
+
+#### `getISOLocalDateTime()`
+
+Returns local date & time in ISO-like format (YYYY-MM-DDThh:mm:ss).
+
+##### Sample usage
+
+```js
+import { getISOLocalDateTime } from '@wojtekmaj/date-utils';
+
+getISOLocalDateTime(new Date(2019, 0, 15, 16, 4, 41)); // "2019-01-15T16:04:41"
+```
+
 ## License
 
 The MIT License.
