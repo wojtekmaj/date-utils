@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/@wojtekmaj/date-utils.svg)](https://www.npmjs.com/package/@wojtekmaj/date-utils) ![downloads](https://img.shields.io/npm/dt/@wojtekmaj/date-utils.svg) ![build](https://travis-ci.com/wojtekmaj/date-utils.svg?branch=master) ![dependencies](https://img.shields.io/david/wojtekmaj/date-utils.svg) ![dev dependencies](https://img.shields.io/david/dev/wojtekmaj/date-utils.svg) [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
+
 # Date-Utils
 A collection of date-related utilities.
 
