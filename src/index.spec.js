@@ -784,7 +784,6 @@ describe('getDayEnd()', () => {
   testThrow(getDayEnd);
 });
 
-
 describe('getPreviousDayEnd()', () => {
   it('returns proper end of the previous day', () => {
     const date = new Date(2019, 6, 15, 12);
