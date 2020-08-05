@@ -1,10 +1,13 @@
 {
-  "extends": "airbnb-base",
   "env": {
     "browser": true,
     "es6": true,
     "jest": true
   },
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "extends": "airbnb-base",
   "rules": {
     "no-restricted-globals": "off"
   }
