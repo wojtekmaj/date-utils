@@ -307,7 +307,13 @@ export function getDaysInMonth(date) {
 }
 
 function padStart(num, val = 2) {
-  return `0000${num}`.slice(-val);
+  const numStr = `${num}`;
+
+  if (numStr.length >= val) {
+    return num;
+  }
+
+  return `0000${numStr}`.slice(-val);
 }
 
 /**
