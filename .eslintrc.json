@@ -1,24 +1,6 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 2020
-  },
-  "extends": "airbnb-base",
+  "extends": "wojtekmaj",
   "rules": {
     "no-restricted-globals": "off"
-  },
-  "overrides": [
-    {
-      "files": [
-        "**/*.spec.js",
-        "**/__tests__/*"
-      ],
-      "env": {
-        "jest": true
-      }
-    }
-  ]
+  }
 }
