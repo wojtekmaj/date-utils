@@ -35,6 +35,9 @@
     "jest": "^26.6.0",
     "rimraf": "^3.0.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "LICENSE",
     "README.md",
