@@ -41,10 +41,8 @@
     "access": "public"
   },
   "files": [
-    "LICENSE",
-    "README.md",
-    "dist/",
-    "src/"
+    "dist",
+    "src"
   ],
   "repository": {
     "type": "git",
