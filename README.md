@@ -1,16 +1,18 @@
 [![npm](https://img.shields.io/npm/v/@wojtekmaj/date-utils.svg)](https://www.npmjs.com/package/@wojtekmaj/date-utils) ![downloads](https://img.shields.io/npm/dt/@wojtekmaj/date-utils.svg) [![CI](https://github.com/wojtekmaj/date-utils/workflows/CI/badge.svg)](https://github.com/wojtekmaj/date-utils/actions) [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
 # Date-Utils
+
 A collection of date-related utilities.
 
 ## tl;dr
-* Install by executing `npm install @wojtekmaj/date-utils` or `yarn add @wojtekmaj/date-utils`.
-* Import by adding `import * as dateUtils from '@wojtekmaj/date-utils'`.
-* Do stuff with it!
-    ```js
-    const now = new Date();
-    const startOfCentury = getCenturyStart(now);
-    ```
+
+- Install by executing `npm install @wojtekmaj/date-utils` or `yarn add @wojtekmaj/date-utils`.
+- Import by adding `import * as dateUtils from '@wojtekmaj/date-utils'`.
+- Do stuff with it!
+  ```js
+  const now = new Date();
+  const startOfCentury = getCenturyStart(now);
+  ```
 
 ## User guide
 
@@ -409,7 +411,7 @@ Gets month start date from a given date.
 ```js
 import { getPreviousMonthEnd } from '@wojtekmaj/date-utils';
 
-getPreviousMonthEnd(new Date(2019, 6, 15)) // new Date(2019, 5, 30, 23, 59, 999)
+getPreviousMonthEnd(new Date(2019, 6, 15)); // new Date(2019, 5, 30, 23, 59, 999)
 ```
 
 #### `getNextMonthStart()`

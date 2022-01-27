@@ -1,6 +1,3 @@
 {
-  "extends": "wojtekmaj",
-  "rules": {
-    "no-restricted-globals": "off"
-  }
+  "extends": "wojtekmaj"
 }

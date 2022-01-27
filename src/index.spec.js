@@ -6,7 +6,6 @@ import {
   getHours,
   getMinutes,
   getSeconds,
-
   getCenturyStart,
   getPreviousCenturyStart,
   getNextCenturyStart,
@@ -14,7 +13,6 @@ import {
   getPreviousCenturyEnd,
   getNextCenturyEnd,
   getCenturyRange,
-
   getDecadeStart,
   getPreviousDecadeStart,
   getNextDecadeStart,
@@ -22,7 +20,6 @@ import {
   getPreviousDecadeEnd,
   getNextDecadeEnd,
   getDecadeRange,
-
   getYearStart,
   getPreviousYearStart,
   getNextYearStart,
@@ -30,7 +27,6 @@ import {
   getPreviousYearEnd,
   getNextYearEnd,
   getYearRange,
-
   getMonthStart,
   getPreviousMonthStart,
   getNextMonthStart,
@@ -38,7 +34,6 @@ import {
   getPreviousMonthEnd,
   getNextMonthEnd,
   getMonthRange,
-
   getDayStart,
   getPreviousDayStart,
   getNextDayStart,
@@ -46,7 +41,6 @@ import {
   getPreviousDayEnd,
   getNextDayEnd,
   getDayRange,
-
   getDaysInMonth,
   getHoursMinutes,
   getHoursMinutesSeconds,
