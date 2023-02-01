@@ -19,8 +19,8 @@ function makeGetEnd<T>(getBeginOfNextPeriod: (date: T) => Date) {
   };
 }
 
-function makeGetRange(functions: ((date: Date) => Date)[]) {
-  return function makeGetRangeInternal(date: Date) {
+function makeGetRange<T>(functions: ((date: T) => Date)[]) {
+  return function makeGetRangeInternal(date: T) {
     return functions.map((fn) => fn(date));
   };
 }
