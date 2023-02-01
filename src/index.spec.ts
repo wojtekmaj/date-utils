@@ -49,7 +49,8 @@ import {
   getISOLocalDateTime,
 } from './index';
 
-function testThrow(fn) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function testThrow(fn: (arg?: any) => any) {
   it('throws an error when given nonsense data', () => {
     const text = 'wololo';
     const flag = true;
@@ -712,7 +713,7 @@ describe('getDayStart()', () => {
 
   it('returns proper beginning of the day for year < 100', () => {
     const date = new Date();
-    date.setFullYear(19, 6, 15, 12);
+    date.setFullYear(19, 6, 15);
     date.setHours(0, 0, 0, 0);
     const dayStartDate = new Date();
     dayStartDate.setFullYear(19, 6, 15);
@@ -871,6 +872,7 @@ describe('getHoursMinutes', () => {
     const flag = true;
 
     expect(() => getHoursMinutes(text)).toThrow();
+    // @ts-expect-error-next-line
     expect(() => getHoursMinutes(flag)).toThrow();
   });
 });
@@ -905,6 +907,7 @@ describe('getHoursMinutesSeconds', () => {
     const flag = true;
 
     expect(() => getHoursMinutesSeconds(text)).toThrow();
+    // @ts-expect-error-next-line
     expect(() => getHoursMinutesSeconds(flag)).toThrow();
   });
 });
