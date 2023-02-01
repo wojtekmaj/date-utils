@@ -2,21 +2,25 @@
  * Utils
  */
 
-function makeGetEdgeOfNeighbor(getPeriod, getEdgeOfPeriod, defaultOffset) {
-  return function makeGetEdgeOfNeighborInternal(date, offset = defaultOffset) {
+function makeGetEdgeOfNeighbor<T>(
+  getPeriod: (date: T) => number,
+  getEdgeOfPeriod: (date: number) => Date,
+  defaultOffset: number,
+) {
+  return function makeGetEdgeOfNeighborInternal(date: T, offset: number = defaultOffset) {
     const previousPeriod = getPeriod(date) + offset;
     return getEdgeOfPeriod(previousPeriod);
   };
 }
 
-function makeGetEnd(getBeginOfNextPeriod) {
-  return function makeGetEndInternal(date) {
+function makeGetEnd<T>(getBeginOfNextPeriod: (date: T) => Date) {
+  return function makeGetEndInternal(date: T) {
     return new Date(getBeginOfNextPeriod(date).getTime() - 1);
   };
 }
 
-function makeGetRange(functions) {
-  return function makeGetRangeInternal(date) {
+function makeGetRange(functions: ((date: Date) => Date)[]) {
+  return function makeGetRangeInternal(date: Date) {
     return functions.map((fn) => fn(date));
   };
 }
@@ -30,7 +34,7 @@ function makeGetRange(functions) {
  *
  * @param {Date|number|string} date Date to get year from.
  */
-export function getYear(date) {
+export function getYear(date: Date | number | string) {
   if (date instanceof Date) {
     return date.getFullYear();
   }
@@ -53,7 +57,7 @@ export function getYear(date) {
  *
  * @param {Date} date Date to get month from.
  */
-export function getMonth(date) {
+export function getMonth(date: Date) {
   if (date instanceof Date) {
     return date.getMonth();
   }
@@ -66,7 +70,7 @@ export function getMonth(date) {
  *
  * @param {Date} date Date to get human-readable month from.
  */
-export function getMonthHuman(date) {
+export function getMonthHuman(date: Date) {
   if (date instanceof Date) {
     return date.getMonth() + 1;
   }
@@ -79,7 +83,7 @@ export function getMonthHuman(date) {
  *
  * @param {Date} date Date to get day of the month from.
  */
-export function getDate(date) {
+export function getDate(date: Date) {
   if (date instanceof Date) {
     return date.getDate();
   }
@@ -92,7 +96,7 @@ export function getDate(date) {
  *
  * @param {Date|string} date Date to get hours from.
  */
-export function getHours(date) {
+export function getHours(date: Date | string) {
   if (date instanceof Date) {
     return date.getHours();
   }
@@ -102,10 +106,13 @@ export function getHours(date) {
 
     if (datePieces.length >= 2) {
       const hoursString = datePieces[0];
-      const hours = parseInt(hoursString, 10);
 
-      if (!isNaN(hours)) {
-        return hours;
+      if (hoursString) {
+        const hours = parseInt(hoursString, 10);
+
+        if (!isNaN(hours)) {
+          return hours;
+        }
       }
     }
   }
@@ -118,7 +125,7 @@ export function getHours(date) {
  *
  * @param {Date|string} date Date to get minutes from.
  */
-export function getMinutes(date) {
+export function getMinutes(date: Date | string) {
   if (date instanceof Date) {
     return date.getMinutes();
   }
@@ -127,7 +134,7 @@ export function getMinutes(date) {
     const datePieces = date.split(':');
 
     if (datePieces.length >= 2) {
-      const minutesString = datePieces[1] || 0;
+      const minutesString = datePieces[1] || '0';
       const minutes = parseInt(minutesString, 10);
 
       if (!isNaN(minutes)) {
@@ -144,7 +151,7 @@ export function getMinutes(date) {
  *
  * @param {Date|string} date Date to get seconds from.
  */
-export function getSeconds(date) {
+export function getSeconds(date: Date | string) {
   if (date instanceof Date) {
     return date.getSeconds();
   }
@@ -153,7 +160,7 @@ export function getSeconds(date) {
     const datePieces = date.split(':');
 
     if (datePieces.length >= 2) {
-      const secondsString = datePieces[2] || 0;
+      const secondsString = datePieces[2] || '0';
       const seconds = parseInt(secondsString, 10);
 
       if (!isNaN(seconds)) {
@@ -169,7 +176,7 @@ export function getSeconds(date) {
  * Century
  */
 
-export function getCenturyStart(date) {
+export function getCenturyStart(date: Date | string | number): Date {
   const year = getYear(date);
   const centuryStartYear = year + ((-year + 1) % 100);
   const centuryStartDate = new Date();
@@ -190,7 +197,7 @@ export const getCenturyRange = makeGetRange([getCenturyStart, getCenturyEnd]);
  * Decade
  */
 
-export function getDecadeStart(date) {
+export function getDecadeStart(date: Date | string | number): Date {
   const year = getYear(date);
   const decadeStartYear = year + ((-year + 1) % 10);
   const decadeStartDate = new Date();
@@ -211,7 +218,7 @@ export const getDecadeRange = makeGetRange([getDecadeStart, getDecadeEnd]);
  * Year
  */
 
-export function getYearStart(date) {
+export function getYearStart(date: Date | string | number): Date {
   const year = getYear(date);
   const yearStartDate = new Date();
   yearStartDate.setFullYear(year, 0, 1);
@@ -231,8 +238,8 @@ export const getYearRange = makeGetRange([getYearStart, getYearEnd]);
  * Month
  */
 
-function makeGetEdgeOfNeighborMonth(getEdgeOfPeriod, defaultOffset) {
-  return function makeGetEdgeOfNeighborMonthInternal(date, offset = defaultOffset) {
+function makeGetEdgeOfNeighborMonth(getEdgeOfPeriod: (date: Date) => Date, defaultOffset: number) {
+  return function makeGetEdgeOfNeighborMonthInternal(date: Date, offset: number = defaultOffset) {
     const year = getYear(date);
     const month = getMonth(date) + offset;
     const previousPeriod = new Date();
@@ -242,7 +249,7 @@ function makeGetEdgeOfNeighborMonth(getEdgeOfPeriod, defaultOffset) {
   };
 }
 
-export function getMonthStart(date) {
+export function getMonthStart(date: Date): Date {
   const year = getYear(date);
   const month = getMonth(date);
   const monthStartDate = new Date();
@@ -263,8 +270,8 @@ export const getMonthRange = makeGetRange([getMonthStart, getMonthEnd]);
  * Day
  */
 
-function makeGetEdgeOfNeighborDay(getEdgeOfPeriod, defaultOffset) {
-  return function makeGetEdgeOfNeighborDayInternal(date, offset = defaultOffset) {
+function makeGetEdgeOfNeighborDay(getEdgeOfPeriod: (date: Date) => Date, defaultOffset: number) {
+  return function makeGetEdgeOfNeighborDayInternal(date: Date, offset: number = defaultOffset) {
     const year = getYear(date);
     const month = getMonth(date);
     const day = getDate(date) + offset;
@@ -275,7 +282,7 @@ function makeGetEdgeOfNeighborDay(getEdgeOfPeriod, defaultOffset) {
   };
 }
 
-export function getDayStart(date) {
+export function getDayStart(date: Date): Date {
   const year = getYear(date);
   const month = getMonth(date);
   const day = getDate(date);
@@ -302,11 +309,11 @@ export const getDayRange = makeGetRange([getDayStart, getDayEnd]);
  *
  * @param {Date} date Date.
  */
-export function getDaysInMonth(date) {
+export function getDaysInMonth(date: Date) {
   return getDate(getMonthEnd(date));
 }
 
-function padStart(num, val = 2) {
+function padStart(num: string | number, val = 2) {
   const numStr = `${num}`;
 
   if (numStr.length >= val) {
@@ -319,7 +326,7 @@ function padStart(num, val = 2) {
 /**
  * Returns local hours and minutes (hh:mm).
  */
-export function getHoursMinutes(date) {
+export function getHoursMinutes(date: Date | string) {
   const hours = padStart(getHours(date));
   const minutes = padStart(getMinutes(date));
 
@@ -329,7 +336,7 @@ export function getHoursMinutes(date) {
 /**
  * Returns local hours, minutes and seconds (hh:mm:ss).
  */
-export function getHoursMinutesSeconds(date) {
+export function getHoursMinutesSeconds(date: Date | string) {
   const hours = padStart(getHours(date));
   const minutes = padStart(getMinutes(date));
   const seconds = padStart(getSeconds(date));
@@ -340,7 +347,7 @@ export function getHoursMinutesSeconds(date) {
 /**
  * Returns local month in ISO-like format (YYYY-MM).
  */
-export function getISOLocalMonth(date) {
+export function getISOLocalMonth(date: Date) {
   const year = padStart(getYear(date), 4);
   const month = padStart(getMonthHuman(date));
 
@@ -350,7 +357,7 @@ export function getISOLocalMonth(date) {
 /**
  * Returns local date in ISO-like format (YYYY-MM-DD).
  */
-export function getISOLocalDate(date) {
+export function getISOLocalDate(date: Date) {
   const year = padStart(getYear(date), 4);
   const month = padStart(getMonthHuman(date));
   const day = padStart(getDate(date));
@@ -361,6 +368,6 @@ export function getISOLocalDate(date) {
 /**
  * Returns local date & time in ISO-like format (YYYY-MM-DDThh:mm:ss).
  */
-export function getISOLocalDateTime(date) {
+export function getISOLocalDateTime(date: Date) {
   return `${getISOLocalDate(date)}T${getHoursMinutesSeconds(date)}`;
 }
