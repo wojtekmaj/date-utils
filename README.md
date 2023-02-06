@@ -27,7 +27,7 @@ Gets year from a given date.
 ```js
 import { getYear } from '@wojtekmaj/date-utils';
 
-getYear(new Date(2019, 0, 1); // 2019
+getYear(new Date(2019, 0, 1)); // 2019
 ```
 
 #### `getMonth()`
@@ -39,7 +39,7 @@ Gets month index from a given date. For example, returns 0 for January, 1 for Fe
 ```js
 import { getMonth } from '@wojtekmaj/date-utils';
 
-getMonth(new Date(2019, 0, 1); // 0
+getMonth(new Date(2019, 0, 1)); // 0
 ```
 
 #### `getMonthHuman()`
@@ -51,7 +51,7 @@ Gets human-readable month number from a given date. For example, returns 1 for J
 ```js
 import { getMonthHuman } from '@wojtekmaj/date-utils';
 
-getMonthHuman(new Date(2019, 0, 1); // 1
+getMonthHuman(new Date(2019, 0, 1)); // 1
 ```
 
 #### `getDate()`
@@ -63,7 +63,7 @@ Gets day of the month from a given date.
 ```js
 import { getDate } from '@wojtekmaj/date-utils';
 
-getDate(new Date(2019, 0, 15); // 15
+getDate(new Date(2019, 0, 15)); // 15
 ```
 
 #### `getHours()`
@@ -75,7 +75,7 @@ Gets hours from a given date or string.
 ```js
 import { getHours } from '@wojtekmaj/date-utils';
 
-getHours(new Date(2019, 0, 15, 22, 41, 56); // 22
+getHours(new Date(2019, 0, 15, 22, 41, 56)); // 22
 getHours('22:41:56'); // 22
 ```
 
@@ -88,7 +88,7 @@ Gets minutes from a given date or string.
 ```js
 import { getMinutes } from '@wojtekmaj/date-utils';
 
-getMinutes(new Date(2019, 0, 15, 22, 41, 56); // 41
+getMinutes(new Date(2019, 0, 15, 22, 41, 56)); // 41
 getMinutes('22:41:56'); // 41
 ```
 
@@ -101,7 +101,7 @@ Gets seconds from a given date or string.
 ```js
 import { getSeconds } from '@wojtekmaj/date-utils';
 
-getSeconds(new Date(2019, 0, 15, 22, 41, 56); // 56
+getSeconds(new Date(2019, 0, 15, 22, 41, 56)); // 56
 getSeconds('22:41:56'); // 56
 getSeconds('22:41:56.321'); // 56
 ```
