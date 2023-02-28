@@ -19,9 +19,9 @@ function makeGetEnd<T>(getBeginOfNextPeriod: (date: T) => Date) {
   };
 }
 
-function makeGetRange<T>(functions: ((date: T) => Date)[]) {
-  return function makeGetRangeInternal(date: T) {
-    return functions.map((fn) => fn(date));
+function makeGetRange<T>(getStart: (date: T) => Date, getEnd: (date: T) => Date) {
+  return function makeGetRangeInternal(date: T): [Date, Date] {
+    return [getStart(date), getEnd(date)];
   };
 }
 
@@ -191,7 +191,7 @@ export const getCenturyEnd = makeGetEnd(getNextCenturyStart);
 export const getPreviousCenturyEnd = makeGetEdgeOfNeighbor(getYear, getCenturyEnd, -100);
 export const getNextCenturyEnd = makeGetEdgeOfNeighbor(getYear, getCenturyEnd, 100);
 
-export const getCenturyRange = makeGetRange([getCenturyStart, getCenturyEnd]);
+export const getCenturyRange = makeGetRange(getCenturyStart, getCenturyEnd);
 
 /**
  * Decade
@@ -212,7 +212,7 @@ export const getDecadeEnd = makeGetEnd(getNextDecadeStart);
 export const getPreviousDecadeEnd = makeGetEdgeOfNeighbor(getYear, getDecadeEnd, -10);
 export const getNextDecadeEnd = makeGetEdgeOfNeighbor(getYear, getDecadeEnd, 10);
 
-export const getDecadeRange = makeGetRange([getDecadeStart, getDecadeEnd]);
+export const getDecadeRange = makeGetRange(getDecadeStart, getDecadeEnd);
 
 /**
  * Year
@@ -232,7 +232,7 @@ export const getYearEnd = makeGetEnd(getNextYearStart);
 export const getPreviousYearEnd = makeGetEdgeOfNeighbor(getYear, getYearEnd, -1);
 export const getNextYearEnd = makeGetEdgeOfNeighbor(getYear, getYearEnd, 1);
 
-export const getYearRange = makeGetRange([getYearStart, getYearEnd]);
+export const getYearRange = makeGetRange(getYearStart, getYearEnd);
 
 /**
  * Month
@@ -264,7 +264,7 @@ export const getMonthEnd = makeGetEnd(getNextMonthStart);
 export const getPreviousMonthEnd = makeGetEdgeOfNeighborMonth(getMonthEnd, -1);
 export const getNextMonthEnd = makeGetEdgeOfNeighborMonth(getMonthEnd, 1);
 
-export const getMonthRange = makeGetRange([getMonthStart, getMonthEnd]);
+export const getMonthRange = makeGetRange(getMonthStart, getMonthEnd);
 
 /**
  * Day
@@ -298,7 +298,7 @@ export const getDayEnd = makeGetEnd(getNextDayStart);
 export const getPreviousDayEnd = makeGetEdgeOfNeighborDay(getDayEnd, -1);
 export const getNextDayEnd = makeGetEdgeOfNeighborDay(getDayEnd, 1);
 
-export const getDayRange = makeGetRange([getDayStart, getDayEnd]);
+export const getDayRange = makeGetRange(getDayStart, getDayEnd);
 
 /**
  * Other
