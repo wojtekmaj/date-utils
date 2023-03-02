@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/@wojtekmaj/date-utils.svg)](https://www.npmjs.com/package/@wojtekmaj/date-utils) ![downloads](https://img.shields.io/npm/dt/@wojtekmaj/date-utils.svg) [![CI](https://github.com/wojtekmaj/date-utils/workflows/CI/badge.svg)](https://github.com/wojtekmaj/date-utils/actions) [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
+[![npm](https://img.shields.io/npm/v/@wojtekmaj/date-utils.svg)](https://www.npmjs.com/package/@wojtekmaj/date-utils) ![downloads](https://img.shields.io/npm/dt/@wojtekmaj/date-utils.svg) [![CI](https://github.com/wojtekmaj/date-utils/workflows/CI/badge.svg)](https://github.com/wojtekmaj/date-utils/actions)
 
 # Date-Utils
 
