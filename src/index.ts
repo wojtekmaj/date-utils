@@ -1,3 +1,5 @@
+type DateLike = Date | number | string;
+
 /**
  * Utils
  */
@@ -30,11 +32,12 @@ function makeGetRange<T>(getStart: (date: T) => Date, getEnd: (date: T) => Date)
  */
 
 /**
- * Gets year from date.
+ * Gets year from a given date.
  *
- * @param {Date|number|string} date Date to get year from.
+ * @param {DateLike} date Date to get year from
+ * @returns {number} Year
  */
-export function getYear(date: Date | number | string) {
+export function getYear(date: DateLike): number {
   if (date instanceof Date) {
     return date.getFullYear();
   }
@@ -53,11 +56,12 @@ export function getYear(date: Date | number | string) {
 }
 
 /**
- * Gets month from date.
+ * Gets month from a given date.
  *
- * @param {Date} date Date to get month from.
+ * @param {Date} date Date to get month from
+ * @returns {number} Month
  */
-export function getMonth(date: Date) {
+export function getMonth(date: Date): number {
   if (date instanceof Date) {
     return date.getMonth();
   }
@@ -66,11 +70,12 @@ export function getMonth(date: Date) {
 }
 
 /**
- * Gets human-readable month from date.
+ * Gets human-readable month from a given date.
  *
- * @param {Date} date Date to get human-readable month from.
+ * @param {Date} date Date to get human-readable month from
+ * @returns {number} Human-readable month
  */
-export function getMonthHuman(date: Date) {
+export function getMonthHuman(date: Date): number {
   if (date instanceof Date) {
     return date.getMonth() + 1;
   }
@@ -79,11 +84,12 @@ export function getMonthHuman(date: Date) {
 }
 
 /**
- * Gets human-readable day of the month from date.
+ * Gets day of the month from a given date.
  *
- * @param {Date} date Date to get day of the month from.
+ * @param {Date} date Date to get day of the month from
+ * @returns {number} Day of the month
  */
-export function getDate(date: Date) {
+export function getDate(date: Date): number {
   if (date instanceof Date) {
     return date.getDate();
   }
@@ -92,11 +98,12 @@ export function getDate(date: Date) {
 }
 
 /**
- * Gets hours from date.
+ * Gets hours from a given date.
  *
- * @param {Date|string} date Date to get hours from.
+ * @param {Date | string} date Date to get hours from
+ * @returns {number} Hours
  */
-export function getHours(date: Date | string) {
+export function getHours(date: Date | string): number {
   if (date instanceof Date) {
     return date.getHours();
   }
@@ -121,11 +128,12 @@ export function getHours(date: Date | string) {
 }
 
 /**
- * Gets minutes from date.
+ * Gets minutes from a given date.
  *
- * @param {Date|string} date Date to get minutes from.
+ * @param {Date | string} date Date to get minutes from
+ * @returns {number} Minutes
  */
-export function getMinutes(date: Date | string) {
+export function getMinutes(date: Date | string): number {
   if (date instanceof Date) {
     return date.getMinutes();
   }
@@ -147,11 +155,12 @@ export function getMinutes(date: Date | string) {
 }
 
 /**
- * Gets seconds from date.
+ * Gets seconds from a given date.
  *
- * @param {Date|string} date Date to get seconds from.
+ * @param {Date | string} date Date to get seconds from
+ * @returns {number} Seconds
  */
-export function getSeconds(date: Date | string) {
+export function getSeconds(date: Date | string): number {
   if (date instanceof Date) {
     return date.getSeconds();
   }
@@ -176,7 +185,13 @@ export function getSeconds(date: Date | string) {
  * Century
  */
 
-export function getCenturyStart(date: Date | string | number): Date {
+/**
+ * Gets century start date from a given date.
+ *
+ * @param {DateLike} date Date to get century start from
+ * @returns {Date} Century start date
+ */
+export function getCenturyStart(date: DateLike): Date {
   const year = getYear(date);
   const centuryStartYear = year + ((-year + 1) % 100);
   const centuryStartDate = new Date();
@@ -184,20 +199,66 @@ export function getCenturyStart(date: Date | string | number): Date {
   centuryStartDate.setHours(0, 0, 0, 0);
   return centuryStartDate;
 }
+
+/**
+ * Gets previous century start date from a given date.
+ *
+ * @param {DateLike} date Date to get previous century start from
+ * @returns {Date} Previous century start date
+ */
 export const getPreviousCenturyStart = makeGetEdgeOfNeighbor(getYear, getCenturyStart, -100);
+
+/**
+ * Gets next century start date from a given date.
+ *
+ * @param {DateLike} date Date to get next century start from
+ * @returns {Date} Next century start date
+ */
 export const getNextCenturyStart = makeGetEdgeOfNeighbor(getYear, getCenturyStart, 100);
 
+/**
+ * Gets century end date from a given date.
+ *
+ * @param {DateLike} date Date to get century end from
+ * @returns {Date} Century end date
+ */
 export const getCenturyEnd = makeGetEnd(getNextCenturyStart);
+
+/**
+ * Gets previous century end date from a given date.
+ *
+ * @param {DateLike} date Date to get previous century end from
+ * @returns {Date} Previous century end date
+ */
 export const getPreviousCenturyEnd = makeGetEdgeOfNeighbor(getYear, getCenturyEnd, -100);
+
+/**
+ * Gets next century end date from a given date.
+ *
+ * @param {DateLike} date Date to get next century end from
+ * @returns {Date} Next century end date
+ */
 export const getNextCenturyEnd = makeGetEdgeOfNeighbor(getYear, getCenturyEnd, 100);
 
+/**
+ * Gets century range from a given date.
+ *
+ * @param {DateLike} date Date to get century range from
+ * @returns {[Date, Date]} Century range
+ */
 export const getCenturyRange = makeGetRange(getCenturyStart, getCenturyEnd);
 
 /**
  * Decade
  */
 
-export function getDecadeStart(date: Date | string | number): Date {
+/**
+ * Gets decade start date from a given date.
+ *
+ * @param {DateLike} date Date to get decade start from
+ * @returns {Date} Decade start date
+ */
+export function getDecadeStart(date: DateLike): Date {
   const year = getYear(date);
   const decadeStartYear = year + ((-year + 1) % 10);
   const decadeStartDate = new Date();
@@ -205,33 +266,119 @@ export function getDecadeStart(date: Date | string | number): Date {
   decadeStartDate.setHours(0, 0, 0, 0);
   return decadeStartDate;
 }
+
+/**
+ * Gets previous decade start date from a given date.
+ *
+ * @param {DateLike} date Date to get previous decade start from
+ * @returns {Date} Previous decade start date
+ */
 export const getPreviousDecadeStart = makeGetEdgeOfNeighbor(getYear, getDecadeStart, -10);
+
+/**
+ * Gets next decade start date from a given date.
+ *
+ * @param {DateLike} date Date to get next decade start from
+ * @returns {Date} Next decade start date
+ */
 export const getNextDecadeStart = makeGetEdgeOfNeighbor(getYear, getDecadeStart, 10);
 
+/**
+ * Gets decade end date from a given date.
+ *
+ * @param {DateLike} date Date to get decade end from
+ * @returns {Date} Decade end date
+ */
 export const getDecadeEnd = makeGetEnd(getNextDecadeStart);
+
+/**
+ * Gets previous decade end date from a given date.
+ *
+ * @param {DateLike} date Date to get previous decade end from
+ * @returns {Date} Previous decade end date
+ */
 export const getPreviousDecadeEnd = makeGetEdgeOfNeighbor(getYear, getDecadeEnd, -10);
+
+/**
+ * Gets next decade end date from a given date.
+ *
+ * @param {DateLike} date Date to get next decade end from
+ * @returns {Date} Next decade end date
+ */
 export const getNextDecadeEnd = makeGetEdgeOfNeighbor(getYear, getDecadeEnd, 10);
 
+/**
+ * Gets decade range from a given date.
+ *
+ * @param {DateLike} date Date to get decade range from
+ * @returns {[Date, Date]} Decade range
+ */
 export const getDecadeRange = makeGetRange(getDecadeStart, getDecadeEnd);
 
 /**
  * Year
  */
 
-export function getYearStart(date: Date | string | number): Date {
+/**
+ * Gets year start date from a given date.
+ *
+ * @param {DateLike} date Date to get year start from
+ * @returns {Date} Year start date
+ */
+export function getYearStart(date: DateLike): Date {
   const year = getYear(date);
   const yearStartDate = new Date();
   yearStartDate.setFullYear(year, 0, 1);
   yearStartDate.setHours(0, 0, 0, 0);
   return yearStartDate;
 }
+
+/**
+ * Gets previous year start date from a given date.
+ *
+ * @param {DateLike} date Date to get previous year start from
+ * @returns {Date} Previous year start date
+ */
 export const getPreviousYearStart = makeGetEdgeOfNeighbor(getYear, getYearStart, -1);
+
+/**
+ * Gets next year start date from a given date.
+ *
+ * @param {DateLike} date Date to get next year start from
+ * @returns {Date} Next year start date
+ */
 export const getNextYearStart = makeGetEdgeOfNeighbor(getYear, getYearStart, 1);
 
+/**
+ * Gets year end date from a given date.
+ *
+ * @param {DateLike} date Date to get year end from
+ * @returns {Date} Year end date
+ */
 export const getYearEnd = makeGetEnd(getNextYearStart);
+
+/**
+ * Gets previous year end date from a given date.
+ *
+ * @param {DateLike} date Date to get previous year end from
+ * @returns {Date} Previous year end date
+ */
 export const getPreviousYearEnd = makeGetEdgeOfNeighbor(getYear, getYearEnd, -1);
+
+/**
+ * Gets next year end date from a given date.
+ *
+ * @param {DateLike} date Date to get next year end from
+ * @returns {Date} Next year end date
+ */
 export const getNextYearEnd = makeGetEdgeOfNeighbor(getYear, getYearEnd, 1);
 
+/**
+ * Gets year range from a given date.
+ *
+ * @param {DateLike} date Date to get year range from
+ * @returns {[Date, Date]} Year range
+ */
 export const getYearRange = makeGetRange(getYearStart, getYearEnd);
 
 /**
@@ -249,6 +396,12 @@ function makeGetEdgeOfNeighborMonth(getEdgeOfPeriod: (date: Date) => Date, defau
   };
 }
 
+/**
+ * Gets month start date from a given date.
+ *
+ * @param {DateLike} date Date to get month start from
+ * @returns {Date} Month start date
+ */
 export function getMonthStart(date: Date): Date {
   const year = getYear(date);
   const month = getMonth(date);
@@ -257,13 +410,53 @@ export function getMonthStart(date: Date): Date {
   monthStartDate.setHours(0, 0, 0, 0);
   return monthStartDate;
 }
+
+/**
+ * Gets previous month start date from a given date.
+ *
+ * @param {DateLike} date Date to get previous month start from
+ * @returns {Date} Previous month start date
+ */
 export const getPreviousMonthStart = makeGetEdgeOfNeighborMonth(getMonthStart, -1);
+
+/**
+ * Gets next month start date from a given date.
+ *
+ * @param {DateLike} date Date to get next month start from
+ * @returns {Date} Next month start date
+ */
 export const getNextMonthStart = makeGetEdgeOfNeighborMonth(getMonthStart, 1);
 
+/**
+ * Gets month end date from a given date.
+ *
+ * @param {DateLike} date Date to get month end from
+ * @returns {Date} Month end date
+ */
 export const getMonthEnd = makeGetEnd(getNextMonthStart);
+
+/**
+ * Gets previous month end date from a given date.
+ *
+ * @param {DateLike} date Date to get previous month end from
+ * @returns {Date} Previous month end date
+ */
 export const getPreviousMonthEnd = makeGetEdgeOfNeighborMonth(getMonthEnd, -1);
+
+/**
+ * Gets next month end date from a given date.
+ *
+ * @param {DateLike} date Date to get next month end from
+ * @returns {Date} Next month end date
+ */
 export const getNextMonthEnd = makeGetEdgeOfNeighborMonth(getMonthEnd, 1);
 
+/**
+ * Gets month range from a given date.
+ *
+ * @param {DateLike} date Date to get month range from
+ * @returns {[Date, Date]} Month range
+ */
 export const getMonthRange = makeGetRange(getMonthStart, getMonthEnd);
 
 /**
@@ -282,6 +475,12 @@ function makeGetEdgeOfNeighborDay(getEdgeOfPeriod: (date: Date) => Date, default
   };
 }
 
+/**
+ * Gets day start date from a given date.
+ *
+ * @param {DateLike} date Date to get day start from
+ * @returns {Date} Day start date
+ */
 export function getDayStart(date: Date): Date {
   const year = getYear(date);
   const month = getMonth(date);
@@ -291,13 +490,53 @@ export function getDayStart(date: Date): Date {
   dayStartDate.setHours(0, 0, 0, 0);
   return dayStartDate;
 }
+
+/**
+ * Gets previous day start date from a given date.
+ *
+ * @param {DateLike} date Date to get previous day start from
+ * @returns {Date} Previous day start date
+ */
 export const getPreviousDayStart = makeGetEdgeOfNeighborDay(getDayStart, -1);
+
+/**
+ * Gets next day start date from a given date.
+ *
+ * @param {DateLike} date Date to get next day start from
+ * @returns {Date} Next day start date
+ */
 export const getNextDayStart = makeGetEdgeOfNeighborDay(getDayStart, 1);
 
+/**
+ * Gets day end date from a given date.
+ *
+ * @param {DateLike} date Date to get day end from
+ * @returns {Date} Day end date
+ */
 export const getDayEnd = makeGetEnd(getNextDayStart);
+
+/**
+ * Gets previous day end date from a given date.
+ *
+ * @param {DateLike} date Date to get previous day end from
+ * @returns {Date} Previous day end date
+ */
 export const getPreviousDayEnd = makeGetEdgeOfNeighborDay(getDayEnd, -1);
+
+/**
+ * Gets next day end date from a given date.
+ *
+ * @param {DateLike} date Date to get next day end from
+ * @returns {Date} Next day end date
+ */
 export const getNextDayEnd = makeGetEdgeOfNeighborDay(getDayEnd, 1);
 
+/**
+ * Gets day range from a given date.
+ *
+ * @param {DateLike} date Date to get day range from
+ * @returns {[Date, Date]} Day range
+ */
 export const getDayRange = makeGetRange(getDayStart, getDayEnd);
 
 /**
@@ -307,9 +546,10 @@ export const getDayRange = makeGetRange(getDayStart, getDayEnd);
 /**
  * Returns a number of days in a month of a given date.
  *
- * @param {Date} date Date.
+ * @param {Date} date Date
+ * @returns {number} Number of days in a month
  */
-export function getDaysInMonth(date: Date) {
+export function getDaysInMonth(date: Date): number {
   return getDate(getMonthEnd(date));
 }
 
@@ -325,8 +565,11 @@ function padStart(num: string | number, val = 2) {
 
 /**
  * Returns local hours and minutes (hh:mm).
+ *
+ * @param {Date | string} date Date to get hours and minutes from
+ * @returns {string} Local hours and minutes
  */
-export function getHoursMinutes(date: Date | string) {
+export function getHoursMinutes(date: Date | string): string {
   const hours = padStart(getHours(date));
   const minutes = padStart(getMinutes(date));
 
@@ -335,8 +578,11 @@ export function getHoursMinutes(date: Date | string) {
 
 /**
  * Returns local hours, minutes and seconds (hh:mm:ss).
+ *
+ * @param {Date | string} date Date to get hours, minutes and seconds from
+ * @returns {string} Local hours, minutes and seconds
  */
-export function getHoursMinutesSeconds(date: Date | string) {
+export function getHoursMinutesSeconds(date: Date | string): string {
   const hours = padStart(getHours(date));
   const minutes = padStart(getMinutes(date));
   const seconds = padStart(getSeconds(date));
@@ -346,8 +592,11 @@ export function getHoursMinutesSeconds(date: Date | string) {
 
 /**
  * Returns local month in ISO-like format (YYYY-MM).
+ *
+ * @param {Date} date Date to get month in ISO-like format from
+ * @returns {string} Local month in ISO-like format
  */
-export function getISOLocalMonth(date: Date) {
+export function getISOLocalMonth(date: Date): string {
   const year = padStart(getYear(date), 4);
   const month = padStart(getMonthHuman(date));
 
@@ -356,8 +605,11 @@ export function getISOLocalMonth(date: Date) {
 
 /**
  * Returns local date in ISO-like format (YYYY-MM-DD).
+ *
+ * @param {Date} date Date to get date in ISO-like format from
+ * @returns {string} Local date in ISO-like format
  */
-export function getISOLocalDate(date: Date) {
+export function getISOLocalDate(date: Date): string {
   const year = padStart(getYear(date), 4);
   const month = padStart(getMonthHuman(date));
   const day = padStart(getDate(date));
@@ -367,7 +619,10 @@ export function getISOLocalDate(date: Date) {
 
 /**
  * Returns local date & time in ISO-like format (YYYY-MM-DDThh:mm:ss).
+ *
+ * @param {Date} date Date to get date & time in ISO-like format from
+ * @returns {string} Local date & time in ISO-like format
  */
-export function getISOLocalDateTime(date: Date) {
+export function getISOLocalDateTime(date: Date): string {
   return `${getISOLocalDate(date)}T${getHoursMinutesSeconds(date)}`;
 }
