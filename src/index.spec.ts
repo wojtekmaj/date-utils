@@ -50,14 +50,18 @@ import {
   getISOLocalDateTime,
 } from './index';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function testThrow(fn: (arg?: any) => any) {
+type DateLike = Date | number | string;
+
+function testThrow(fn: ((arg: Date) => void) | ((arg: DateLike) => void)) {
   it('throws an error when given nonsense data', () => {
     const text = 'wololo';
     const flag = true;
 
+    // @ts-expect-error-next-line
     expect(() => fn(text)).toThrow();
+    // @ts-expect-error-next-line
     expect(() => fn(flag)).toThrow();
+    // @ts-expect-error-next-line
     expect(() => fn()).toThrow();
   });
 }
