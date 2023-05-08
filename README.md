@@ -182,7 +182,7 @@ getNextCenturyEnd(new Date(2019, 0, 1)); // new Date(2200, 12, 31, 23, 59, 999)
 
 #### `getCenturyRange()`
 
-Gets century range from a given date. Returns an array of values equal to the ones returned by `getCenturyStart()` and `getCenturyEnd()`.
+Gets century start and end dates from a given date. Returns an array of values equal to the ones returned by `getCenturyStart()` and `getCenturyEnd()`.
 
 ##### Sample usage
 
@@ -268,7 +268,7 @@ getNextDecadeEnd(new Date(2019, 0, 1)); // new Date(2030, 12, 31, 23, 59, 999)
 
 #### `getDecadeRange()`
 
-Gets decade range from a given date. Returns an array of values equal to the ones returned by `getDecadeStart()` and `getDecadeEnd()`.
+Gets decade start and end dates from a given date. Returns an array of values equal to the ones returned by `getDecadeStart()` and `getDecadeEnd()`.
 
 ##### Sample usage
 
@@ -354,7 +354,7 @@ getNextYearEnd(new Date(2019, 6, 1)); // new Date(2020, 12, 31, 23, 59, 999)
 
 #### `getYearRange()`
 
-Gets year range from a given date. Returns an array of values equal to the ones returned by `getYearStart()` and `getYearEnd()`.
+Gets year start and end dates from a given date. Returns an array of values equal to the ones returned by `getYearStart()` and `getYearEnd()`.
 
 ##### Sample usage
 
@@ -440,7 +440,7 @@ getNextMonthEnd(new Date(2019, 6, 15)); // new Date(2019, 7, 31, 23, 59, 999)
 
 #### `getMonthRange()`
 
-Gets month range from a given date. Returns an array of values equal to the ones returned by `getMonthStart()` and `getMonthEnd()`.
+Gets month start and end dates from a given date. Returns an array of values equal to the ones returned by `getMonthStart()` and `getMonthEnd()`.
 
 ##### Sample usage
 
@@ -526,7 +526,7 @@ getNextDayEnd(new Date(2019, 6, 15, 12)); // new Date(2019, 6, 16, 23, 59, 999)
 
 #### `getDayRange()`
 
-Gets day range from a given date. Returns an array of values equal to the ones returned by `getDayStart()` and `getDayEnd()`.
+Gets day start and end dates from a given date. Returns an array of values equal to the ones returned by `getDayStart()` and `getDayEnd()`.
 
 ##### Sample usage
 
