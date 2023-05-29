@@ -48,7 +48,7 @@ import {
   getISOLocalMonth,
   getISOLocalDate,
   getISOLocalDateTime,
-} from './index';
+} from './index.js';
 
 type DateLike = Date | number | string;
 
