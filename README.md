@@ -96,6 +96,8 @@ getMinutes('22:41:56'); // 41
 
 Gets seconds from a given date or string.
 
+Optional parameter: `keepMilliseconds: boolean` - if set to `true`, returns seconds with milliseconds. Defaults to `false`.
+
 ##### Sample usage
 
 ```js
@@ -104,6 +106,14 @@ import { getSeconds } from '@wojtekmaj/date-utils';
 getSeconds(new Date(2019, 0, 15, 22, 41, 56)); // 56
 getSeconds('22:41:56'); // 56
 getSeconds('22:41:56.321'); // 56
+```
+
+##### Sample usage with `keepMilliseconds`
+
+```js
+import { getSeconds } from '@wojtekmaj/date-utils';
+getSeconds('22:41:56', true); // 56
+getSeconds('22:41:56.321', true); // 56.321
 ```
 
 ### Century-related getters

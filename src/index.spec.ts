@@ -210,6 +210,64 @@ describe('getSeconds()', () => {
   testThrow(getSeconds);
 });
 
+describe('getSeconds() with keepMilliseconds enabled', () => {
+  it('still returns proper seconds from Date with no milliseconds', () => {
+    const date = new Date(2019, 0, 1, 22, 41, 56);
+
+    const result = getSeconds(date, true);
+
+    expect(result).toBe(56);
+  });
+
+  it('returns proper seconds with milliseconds from Date with explicit milliseconds', () => {
+    const date = new Date(2019, 0, 1, 22, 41, 56, 321);
+
+    const result = getSeconds(date, true);
+
+    expect(result).toBe(56.321);
+  });
+
+  it('returns proper seconds with no milliseconds from Date with explicit 0 milliseconds', () => {
+    const date = new Date(2019, 0, 1, 22, 41, 56, 0);
+
+    const result = getSeconds(date, true);
+
+    expect(result).toBe(56);
+  });
+
+  it('still returns proper seconds from string with no milliseconds', () => {
+    const date = '22:41:56';
+
+    const result = getSeconds(date, true);
+
+    expect(result).toBe(56);
+  });
+
+  it('returns proper seconds and milliseconds from string with explicit milliseconds', () => {
+    const date = '22:41:56.321';
+
+    const result = getSeconds(date, true);
+
+    expect(result).toBe(56.321);
+  });
+
+  it('returns proper seconds with no milliseconds from string with explicit 0 milliseconds', () => {
+    const date = '22:41:56.0';
+
+    const result = getSeconds(date, true);
+
+    expect(result).toBe(56);
+  });
+
+  it('still returns proper seconds from string without seconds', () => {
+    const date = '22:41';
+
+    const result = getSeconds(date, true);
+
+    expect(result).toBe(0);
+  });
+});
+
 /**
  * Century
  */

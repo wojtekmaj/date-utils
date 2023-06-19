@@ -158,10 +158,14 @@ export function getMinutes(date: Date | string): number {
  * Gets seconds from a given date.
  *
  * @param {Date | string} date Date to get seconds from
+ * @param {boolean} keepMilliseconds Whether to keep and return milliseconds
  * @returns {number} Seconds
  */
-export function getSeconds(date: Date | string): number {
+export function getSeconds(date: Date | string, keepMilliseconds = false): number {
   if (date instanceof Date) {
+    if (keepMilliseconds) {
+      return date.getSeconds() + date.getMilliseconds() / 1000;
+    }
     return date.getSeconds();
   }
 
@@ -170,6 +174,12 @@ export function getSeconds(date: Date | string): number {
 
     if (datePieces.length >= 2) {
       const secondsString = datePieces[2] || '0';
+      const secondsWithPossibleMilliseconds = parseFloat(secondsString);
+
+      if (keepMilliseconds && !isNaN(secondsWithPossibleMilliseconds)) {
+        return secondsWithPossibleMilliseconds;
+      }
+
       const seconds = parseInt(secondsString, 10);
 
       if (!isNaN(seconds)) {
