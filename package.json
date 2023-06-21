@@ -1,5 +1,5 @@
 {
-  "name": "@wojtekmaj/date-utils",
+  "name": "@arcataroger/date-utils-milliseconds",
   "version": "1.5.0",
   "description": "A collection of date-related utilities.",
   "type": "module",

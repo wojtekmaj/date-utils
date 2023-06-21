@@ -2,7 +2,7 @@
 
 # Date-Utils
 
-A collection of date-related utilities.
+A collection of date-related utilities. Forked from [@wojtekmaj/date-utils](https://github.com/wojtekmaj/date-utils) to add milliseconds support until [the relevant upstream PR](https://github.com/wojtekmaj/date-utils/pull/74) is accepted.
 
 ## tl;dr
 
