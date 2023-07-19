@@ -9,7 +9,7 @@ A collection of date-related utilities.
 - Install by executing `npm install @wojtekmaj/date-utils` or `yarn add @wojtekmaj/date-utils`.
 - Import by adding `import * as dateUtils from '@wojtekmaj/date-utils'`.
 - Do stuff with it!
-  ```js
+  ```ts
   const now = new Date();
   const startOfCentury = getCenturyStart(now);
   ```
@@ -24,7 +24,7 @@ Gets year from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getYear } from '@wojtekmaj/date-utils';
 
 getYear(new Date(2019, 0, 1)); // 2019
@@ -36,7 +36,7 @@ Gets month index from a given date. For example, returns 0 for January, 1 for Fe
 
 ##### Sample usage
 
-```js
+```ts
 import { getMonth } from '@wojtekmaj/date-utils';
 
 getMonth(new Date(2019, 0, 1)); // 0
@@ -48,7 +48,7 @@ Gets human-readable month number from a given date. For example, returns 1 for J
 
 ##### Sample usage
 
-```js
+```ts
 import { getMonthHuman } from '@wojtekmaj/date-utils';
 
 getMonthHuman(new Date(2019, 0, 1)); // 1
@@ -60,7 +60,7 @@ Gets day of the month from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getDate } from '@wojtekmaj/date-utils';
 
 getDate(new Date(2019, 0, 15)); // 15
@@ -72,7 +72,7 @@ Gets hours from a given date or string.
 
 ##### Sample usage
 
-```js
+```ts
 import { getHours } from '@wojtekmaj/date-utils';
 
 getHours(new Date(2019, 0, 15, 22, 41, 56)); // 22
@@ -85,7 +85,7 @@ Gets minutes from a given date or string.
 
 ##### Sample usage
 
-```js
+```ts
 import { getMinutes } from '@wojtekmaj/date-utils';
 
 getMinutes(new Date(2019, 0, 15, 22, 41, 56)); // 41
@@ -98,7 +98,7 @@ Gets seconds from a given date or string.
 
 ##### Sample usage
 
-```js
+```ts
 import { getSeconds } from '@wojtekmaj/date-utils';
 
 getSeconds(new Date(2019, 0, 15, 22, 41, 56)); // 56
@@ -114,7 +114,7 @@ Gets century start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getCenturyStart } from '@wojtekmaj/date-utils';
 
 getCenturyStart(new Date(2019, 0, 1)); // new Date(2001, 0, 1)
@@ -126,7 +126,7 @@ Gets century start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getCenturyEnd } from '@wojtekmaj/date-utils';
 
 getCenturyEnd(new Date(2019, 0, 1)); // new Date(2100, 12, 31, 23, 59, 999)
@@ -138,7 +138,7 @@ Gets previous century start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getPreviousCenturyStart } from '@wojtekmaj/date-utils';
 
 getPreviousCenturyStart(new Date(2019, 0, 1)); // new Date(1901, 0, 1)
@@ -150,7 +150,7 @@ Gets century start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getPreviousCenturyEnd } from '@wojtekmaj/date-utils';
 
 getPreviousCenturyEnd(new Date(2019, 0, 1)); // new Date(2000, 12, 31, 23, 59, 999)
@@ -162,7 +162,7 @@ Gets next century start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getNextCenturyStart } from '@wojtekmaj/date-utils';
 
 getNextCenturyStart(new Date(2019, 0, 1)); // new Date(2101, 0, 1)
@@ -174,7 +174,7 @@ Gets next century start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getNextCenturyEnd } from '@wojtekmaj/date-utils';
 
 getNextCenturyEnd(new Date(2019, 0, 1)); // new Date(2200, 12, 31, 23, 59, 999)
@@ -186,7 +186,7 @@ Gets century start and end dates from a given date. Returns an array of values e
 
 ##### Sample usage
 
-```js
+```ts
 import { getCenturyRange } from '@wojtekmaj/date-utils';
 
 getCenturyRange(new Date(2019, 0, 1)); // [new Date(2001, 0, 1), new Date(2100, 12, 31, 23, 59, 999)
@@ -200,7 +200,7 @@ Gets decade start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getDecadeStart } from '@wojtekmaj/date-utils';
 
 getDecadeStart(new Date(2019, 0, 1)); // new Date(2011, 0, 1)
@@ -212,7 +212,7 @@ Gets decade start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getDecadeEnd } from '@wojtekmaj/date-utils';
 
 getDecadeEnd(new Date(2019, 0, 1)); // new Date(2020, 12, 31, 23, 59, 999)
@@ -224,7 +224,7 @@ Gets previous decade start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getPreviousDecadeStart } from '@wojtekmaj/date-utils';
 
 getPreviousDecadeStart(new Date(2019, 0, 1)); // new Date(2001, 0, 1)
@@ -236,7 +236,7 @@ Gets decade start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getPreviousDecadeEnd } from '@wojtekmaj/date-utils';
 
 getPreviousDecadeEnd(new Date(2019, 0, 1)); // new Date(2010, 12, 31, 23, 59, 999)
@@ -248,7 +248,7 @@ Gets next decade start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getNextDecadeStart } from '@wojtekmaj/date-utils';
 
 getNextDecadeStart(new Date(2019, 0, 1)); // new Date(2021, 0, 1)
@@ -260,7 +260,7 @@ Gets next decade start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getNextDecadeEnd } from '@wojtekmaj/date-utils';
 
 getNextDecadeEnd(new Date(2019, 0, 1)); // new Date(2030, 12, 31, 23, 59, 999)
@@ -272,7 +272,7 @@ Gets decade start and end dates from a given date. Returns an array of values eq
 
 ##### Sample usage
 
-```js
+```ts
 import { getDecadeRange } from '@wojtekmaj/date-utils';
 
 getDecadeRange(new Date(2019, 0, 1)); // [new Date(2011, 0, 1), new Date(2020, 12, 31, 23, 59, 999)
@@ -286,7 +286,7 @@ Gets year start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getYearStart } from '@wojtekmaj/date-utils';
 
 getYearStart(new Date(2019, 6, 1)); // new Date(2019, 0, 1)
@@ -298,7 +298,7 @@ Gets year start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getYearEnd } from '@wojtekmaj/date-utils';
 
 getYearEnd(new Date(2019, 6, 1)); // new Date(2019, 12, 31, 23, 59, 999)
@@ -310,7 +310,7 @@ Gets previous year start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getPreviousYearStart } from '@wojtekmaj/date-utils';
 
 getPreviousYearStart(new Date(2019, 6, 1)); // new Date(2018, 0, 1)
@@ -322,7 +322,7 @@ Gets year start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getPreviousYearEnd } from '@wojtekmaj/date-utils';
 
 getPreviousYearEnd(new Date(2019, 6, 1)); // new Date(2018, 12, 31, 23, 59, 999)
@@ -334,7 +334,7 @@ Gets next year start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getNextYearStart } from '@wojtekmaj/date-utils';
 
 getNextYearStart(new Date(2019, 6, 1)); // new Date(2020, 0, 1)
@@ -346,7 +346,7 @@ Gets next year start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getNextYearEnd } from '@wojtekmaj/date-utils';
 
 getNextYearEnd(new Date(2019, 6, 1)); // new Date(2020, 12, 31, 23, 59, 999)
@@ -358,7 +358,7 @@ Gets year start and end dates from a given date. Returns an array of values equa
 
 ##### Sample usage
 
-```js
+```ts
 import { getYearRange } from '@wojtekmaj/date-utils';
 
 getYearRange(new Date(2019, 6, 1)); // [new Date(2019, 0, 1), new Date(2019, 12, 31, 23, 59, 999)
@@ -372,7 +372,7 @@ Gets month start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getMonthStart } from '@wojtekmaj/date-utils';
 
 getMonthStart(new Date(2019, 6, 15)); // new Date(2019, 6, 1)
@@ -384,7 +384,7 @@ Gets month start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getMonthEnd } from '@wojtekmaj/date-utils';
 
 getMonthEnd(new Date(2019, 6, 15)); // new Date(2019, 6, 31, 23, 59, 999)
@@ -396,7 +396,7 @@ Gets previous month start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getPreviousMonthStart } from '@wojtekmaj/date-utils';
 
 getPreviousMonthStart(new Date(2019, 6, 15)); // new Date(2019, 5, 1)
@@ -408,7 +408,7 @@ Gets month start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getPreviousMonthEnd } from '@wojtekmaj/date-utils';
 
 getPreviousMonthEnd(new Date(2019, 6, 15)); // new Date(2019, 5, 30, 23, 59, 999)
@@ -420,7 +420,7 @@ Gets next month start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getNextMonthStart } from '@wojtekmaj/date-utils';
 
 getNextMonthStart(new Date(2019, 6, 15)); // new Date(2019, 7, 1)
@@ -432,7 +432,7 @@ Gets next month start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getNextMonthEnd } from '@wojtekmaj/date-utils';
 
 getNextMonthEnd(new Date(2019, 6, 15)); // new Date(2019, 7, 31, 23, 59, 999)
@@ -444,7 +444,7 @@ Gets month start and end dates from a given date. Returns an array of values equ
 
 ##### Sample usage
 
-```js
+```ts
 import { getMonthRange } from '@wojtekmaj/date-utils';
 
 getMonthRange(new Date(2019, 6, 15)); // [new Date(2019, 6, 1), new Date(2019, 6, 31, 23, 59, 999)
@@ -458,7 +458,7 @@ Gets day start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getDayStart } from '@wojtekmaj/date-utils';
 
 getDayStart(new Date(2019, 6, 15, 12)); // new Date(2019, 6, 15)
@@ -470,7 +470,7 @@ Gets day start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getDayEnd } from '@wojtekmaj/date-utils';
 
 getDayEnd(new Date(2019, 6, 15, 12)); // new Date(2019, 6, 15, 23, 59, 999)
@@ -482,7 +482,7 @@ Gets previous day start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getPreviousDayStart } from '@wojtekmaj/date-utils';
 
 getPreviousDayStart(new Date(2019, 6, 15, 12)); // new Date(2019, 6, 14)
@@ -494,7 +494,7 @@ Gets day start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getPreviousDayEnd } from '@wojtekmaj/date-utils';
 
 getPreviousDayEnd(new Date(2019, 6, 15, 12)); // new Date(2019, 6, 14, 23, 59, 999)
@@ -506,7 +506,7 @@ Gets next day start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getNextDayStart } from '@wojtekmaj/date-utils';
 
 getNextDayStart(new Date(2019, 6, 15, 12)); // new Date(2019, 6, 16)
@@ -518,7 +518,7 @@ Gets next day start date from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getNextDayEnd } from '@wojtekmaj/date-utils';
 
 getNextDayEnd(new Date(2019, 6, 15, 12)); // new Date(2019, 6, 16, 23, 59, 999)
@@ -530,7 +530,7 @@ Gets day start and end dates from a given date. Returns an array of values equal
 
 ##### Sample usage
 
-```js
+```ts
 import { getDayRange } from '@wojtekmaj/date-utils';
 
 getDayRange(new Date(2019, 6, 15, 12)); // [new Date(2019, 6, 15), new Date(2019, 6, 15, 23, 59, 999)
@@ -544,7 +544,7 @@ Gets number of days in a month from a given date.
 
 ##### Sample usage
 
-```js
+```ts
 import { getDaysInMonth } from '@wojtekmaj/date-utils';
 
 getDaysInMonth(new Date(2019, 0, 15)); // 31
@@ -556,7 +556,7 @@ Returns local hours and minutes (hh:mm).
 
 ##### Sample usage
 
-```js
+```ts
 import { getHoursMinutes } from '@wojtekmaj/date-utils';
 
 getHoursMinutes(new Date(2019, 0, 15, 16, 4)); // "16:04"
@@ -568,7 +568,7 @@ Returns local hours, minutes and seconds (hh:mm:ss).
 
 ##### Sample usage
 
-```js
+```ts
 import { getHoursMinutesSeconds } from '@wojtekmaj/date-utils';
 
 getHoursMinutesSeconds(new Date(2019, 0, 15, 16, 4, 41)); // "16:04:41"
@@ -580,7 +580,7 @@ Returns local month in ISO-like format (YYYY-MM).
 
 ##### Sample usage
 
-```js
+```ts
 import { getISOLocalMonth } from '@wojtekmaj/date-utils';
 
 getISOLocalMonth(new Date(2019, 0, 15)); // "2019-01"
@@ -592,7 +592,7 @@ Returns local date in ISO-like format (YYYY-MM-DD).
 
 ##### Sample usage
 
-```js
+```ts
 import { getISOLocalDate } from '@wojtekmaj/date-utils';
 
 getISOLocalDate(new Date(2019, 0, 15)); // "2019-01-15"
@@ -604,7 +604,7 @@ Returns local date & time in ISO-like format (YYYY-MM-DDThh:mm:ss).
 
 ##### Sample usage
 
-```js
+```ts
 import { getISOLocalDateTime } from '@wojtekmaj/date-utils';
 
 getISOLocalDateTime(new Date(2019, 0, 15, 16, 4, 41)); // "2019-01-15T16:04:41"
