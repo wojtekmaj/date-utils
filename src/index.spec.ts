@@ -7,6 +7,7 @@ import {
   getHours,
   getMinutes,
   getSeconds,
+  getMilliseconds,
   getCenturyStart,
   getPreviousCenturyStart,
   getNextCenturyStart,
@@ -208,6 +209,42 @@ describe('getSeconds()', () => {
   });
 
   testThrow(getSeconds);
+});
+
+describe('getMilliseconds()', () => {
+  it('returns proper milliseconds from Date', () => {
+    const date = new Date(2019, 0, 1, 22, 41, 56, 321);
+
+    const result = getMilliseconds(date);
+
+    expect(result).toBe(321);
+  });
+
+  it('returns proper millieconds from string', () => {
+    const date = '22:41:56.321';
+
+    const result = getMilliseconds(date);
+
+    expect(result).toBe(321);
+  });
+
+  it('returns proper milliseconds from string without milliseconds', () => {
+    const date = '22:41:56';
+
+    const result = getMilliseconds(date);
+
+    expect(result).toBe(0);
+  });
+
+  it('returns proper milliseconds from string without seconds', () => {
+    const date = '22:41';
+
+    const result = getMilliseconds(date);
+
+    expect(result).toBe(0);
+  });
+
+  testThrow(getMilliseconds);
 });
 
 /**

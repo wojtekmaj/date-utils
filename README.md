@@ -109,6 +109,21 @@ getSeconds('22:41:56'); // 56
 getSeconds('22:41:56.321'); // 56
 ```
 
+#### `getMilliseconds()`
+
+Gets milliseconds from a given date or string.
+
+##### Sample usage
+
+```ts
+import { getMilliseconds } from '@wojtekmaj/date-utils';
+
+getMilliseconds(new Date(2019, 0, 15, 22, 41, 56, 321)); // 321
+getMilliseconds('22:41'); // 0
+getMilliseconds('22:41:56'); // 0
+getMilliseconds('22:41:56.321'); // 321
+```
+
 ### Century-related getters
 
 #### `getCenturyStart()`

@@ -182,6 +182,34 @@ export function getSeconds(date: Date | string): number {
 }
 
 /**
+ * Gets milliseconds from a given date.
+ *
+ * @param {Date | string} date Date to get milliseconds from
+ * @returns {number} Milliseconds
+ */
+export function getMilliseconds(date: Date | string): number {
+  if (date instanceof Date) {
+    return date.getMilliseconds();
+  }
+
+  if (typeof date === 'string') {
+    const datePieces = date.split(':');
+
+    if (datePieces.length >= 2) {
+      const secondsWithMillisecondsString = datePieces[2] || '0';
+      const millisecondsString = secondsWithMillisecondsString.split('.')[1] || '0';
+      const milliseconds = parseInt(millisecondsString, 10);
+
+      if (!isNaN(milliseconds)) {
+        return milliseconds;
+      }
+    }
+  }
+
+  throw new Error(`Failed to get seconds from date: ${date}.`);
+}
+
+/**
  * Century
  */
 
