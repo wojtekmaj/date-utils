@@ -169,8 +169,8 @@ export function getSeconds(date: Date | string): number {
     const datePieces = date.split(':');
 
     if (datePieces.length >= 2) {
-      const secondsString = datePieces[2] || '0';
-      const seconds = parseInt(secondsString, 10);
+      const secondsWithMillisecondsString = datePieces[2] || '0';
+      const seconds = parseInt(secondsWithMillisecondsString, 10);
 
       if (!isNaN(seconds)) {
         return seconds;
