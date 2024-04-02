@@ -909,14 +909,7 @@ describe('getHoursMinutes', () => {
     expect(hoursMinutes).toBe('16:04');
   });
 
-  it('throws an error when given nonsense data', () => {
-    const text = 'wololo';
-    const flag = true;
-
-    expect(() => getHoursMinutes(text)).toThrow();
-    // @ts-expect-error-next-line
-    expect(() => getHoursMinutes(flag)).toThrow();
-  });
+  testThrow(getHoursMinutes);
 });
 
 describe('getHoursMinutesSeconds', () => {
@@ -944,14 +937,7 @@ describe('getHoursMinutesSeconds', () => {
     expect(hoursMinutesSeconds).toBe('16:04:08');
   });
 
-  it('throws an error when given nonsense data', () => {
-    const text = 'wololo';
-    const flag = true;
-
-    expect(() => getHoursMinutesSeconds(text)).toThrow();
-    // @ts-expect-error-next-line
-    expect(() => getHoursMinutesSeconds(flag)).toThrow();
-  });
+  testThrow(getHoursMinutesSeconds);
 });
 
 describe('getISOLocalMonth()', () => {
