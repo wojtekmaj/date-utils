@@ -46,9 +46,9 @@ export function getYear(date: DateLike): number {
     return date;
   }
 
-  const year = parseInt(date, 10);
+  const year = Number.parseInt(date, 10);
 
-  if (typeof date === 'string' && !isNaN(year)) {
+  if (typeof date === 'string' && !Number.isNaN(year)) {
     return year;
   }
 
@@ -115,9 +115,9 @@ export function getHours(date: Date | string): number {
       const hoursString = datePieces[0];
 
       if (hoursString) {
-        const hours = parseInt(hoursString, 10);
+        const hours = Number.parseInt(hoursString, 10);
 
-        if (!isNaN(hours)) {
+        if (!Number.isNaN(hours)) {
           return hours;
         }
       }
@@ -143,9 +143,9 @@ export function getMinutes(date: Date | string): number {
 
     if (datePieces.length >= 2) {
       const minutesString = datePieces[1] || '0';
-      const minutes = parseInt(minutesString, 10);
+      const minutes = Number.parseInt(minutesString, 10);
 
-      if (!isNaN(minutes)) {
+      if (!Number.isNaN(minutes)) {
         return minutes;
       }
     }
@@ -170,9 +170,9 @@ export function getSeconds(date: Date | string): number {
 
     if (datePieces.length >= 2) {
       const secondsWithMillisecondsString = datePieces[2] || '0';
-      const seconds = parseInt(secondsWithMillisecondsString, 10);
+      const seconds = Number.parseInt(secondsWithMillisecondsString, 10);
 
-      if (!isNaN(seconds)) {
+      if (!Number.isNaN(seconds)) {
         return seconds;
       }
     }
@@ -198,9 +198,9 @@ export function getMilliseconds(date: Date | string): number {
     if (datePieces.length >= 2) {
       const secondsWithMillisecondsString = datePieces[2] || '0';
       const millisecondsString = secondsWithMillisecondsString.split('.')[1] || '0';
-      const milliseconds = parseInt(millisecondsString, 10);
+      const milliseconds = Number.parseInt(millisecondsString, 10);
 
-      if (!isNaN(milliseconds)) {
+      if (!Number.isNaN(milliseconds)) {
         return milliseconds;
       }
     }
