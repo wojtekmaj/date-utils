@@ -499,7 +499,7 @@ export function getMonthStart(date: Date): Date {
 /**
  * Gets previous month start date from a given date.
  *
- * @param {DateLike} date Date to get previous month start from
+ * @param {Date} date Date to get previous month start from
  * @returns {Date} Previous month start date
  */
 export const getPreviousMonthStart: (date: Date) => Date = makeGetEdgeOfNeighborMonth(
@@ -510,7 +510,7 @@ export const getPreviousMonthStart: (date: Date) => Date = makeGetEdgeOfNeighbor
 /**
  * Gets next month start date from a given date.
  *
- * @param {DateLike} date Date to get next month start from
+ * @param {Date} date Date to get next month start from
  * @returns {Date} Next month start date
  */
 export const getNextMonthStart: (date: Date) => Date = makeGetEdgeOfNeighborMonth(getMonthStart, 1);
@@ -518,7 +518,7 @@ export const getNextMonthStart: (date: Date) => Date = makeGetEdgeOfNeighborMont
 /**
  * Gets month end date from a given date.
  *
- * @param {DateLike} date Date to get month end from
+ * @param {Date} date Date to get month end from
  * @returns {Date} Month end date
  */
 export const getMonthEnd: (date: Date) => Date = makeGetEnd(getNextMonthStart);
@@ -526,7 +526,7 @@ export const getMonthEnd: (date: Date) => Date = makeGetEnd(getNextMonthStart);
 /**
  * Gets previous month end date from a given date.
  *
- * @param {DateLike} date Date to get previous month end from
+ * @param {Date} date Date to get previous month end from
  * @returns {Date} Previous month end date
  */
 export const getPreviousMonthEnd: (date: Date) => Date = makeGetEdgeOfNeighborMonth(
@@ -537,7 +537,7 @@ export const getPreviousMonthEnd: (date: Date) => Date = makeGetEdgeOfNeighborMo
 /**
  * Gets next month end date from a given date.
  *
- * @param {DateLike} date Date to get next month end from
+ * @param {Date} date Date to get next month end from
  * @returns {Date} Next month end date
  */
 export const getNextMonthEnd: (date: Date) => Date = makeGetEdgeOfNeighborMonth(getMonthEnd, 1);
@@ -545,7 +545,7 @@ export const getNextMonthEnd: (date: Date) => Date = makeGetEdgeOfNeighborMonth(
 /**
  * Gets month start and end dates from a given date.
  *
- * @param {DateLike} date Date to get month start and end from
+ * @param {Date} date Date to get month start and end from
  * @returns {[Date, Date]} Month start and end dates
  */
 export const getMonthRange: (date: Date) => [Date, Date] = makeGetRange(getMonthStart, getMonthEnd);
@@ -585,7 +585,7 @@ export function getDayStart(date: Date): Date {
 /**
  * Gets previous day start date from a given date.
  *
- * @param {DateLike} date Date to get previous day start from
+ * @param {Date} date Date to get previous day start from
  * @returns {Date} Previous day start date
  */
 export const getPreviousDayStart: (date: Date) => Date = makeGetEdgeOfNeighborDay(getDayStart, -1);
@@ -593,7 +593,7 @@ export const getPreviousDayStart: (date: Date) => Date = makeGetEdgeOfNeighborDa
 /**
  * Gets next day start date from a given date.
  *
- * @param {DateLike} date Date to get next day start from
+ * @param {Date} date Date to get next day start from
  * @returns {Date} Next day start date
  */
 export const getNextDayStart: (date: Date) => Date = makeGetEdgeOfNeighborDay(getDayStart, 1);
@@ -601,7 +601,7 @@ export const getNextDayStart: (date: Date) => Date = makeGetEdgeOfNeighborDay(ge
 /**
  * Gets day end date from a given date.
  *
- * @param {DateLike} date Date to get day end from
+ * @param {Date} date Date to get day end from
  * @returns {Date} Day end date
  */
 export const getDayEnd: (date: Date) => Date = makeGetEnd(getNextDayStart);
