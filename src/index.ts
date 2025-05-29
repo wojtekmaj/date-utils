@@ -232,21 +232,20 @@ export function getCenturyStart(date: DateLike): Date {
  * Gets previous century start date from a given date.
  *
  * @param {DateLike} date Date to get previous century start from
+ * @param {number} [offset=-100] Offset in years to calculate previous century start from
  * @returns {Date} Previous century start date
  */
-export const getPreviousCenturyStart: (date: DateLike) => Date = makeGetEdgeOfNeighbor(
-  getYear,
-  getCenturyStart,
-  -100,
-);
+export const getPreviousCenturyStart: (date: DateLike, offset?: number) => Date =
+  makeGetEdgeOfNeighbor(getYear, getCenturyStart, -100);
 
 /**
  * Gets next century start date from a given date.
  *
  * @param {DateLike} date Date to get next century start from
+ * @param {number} [offset=100] Offset in years to calculate next century start from
  * @returns {Date} Next century start date
  */
-export const getNextCenturyStart: (date: DateLike) => Date = makeGetEdgeOfNeighbor(
+export const getNextCenturyStart: (date: DateLike, offset?: number) => Date = makeGetEdgeOfNeighbor(
   getYear,
   getCenturyStart,
   100,
@@ -264,21 +263,20 @@ export const getCenturyEnd: (date: DateLike) => Date = makeGetEnd(getNextCentury
  * Gets previous century end date from a given date.
  *
  * @param {DateLike} date Date to get previous century end from
+ * @param {number} [offset=-100] Offset in years to calculate previous century end from
  * @returns {Date} Previous century end date
  */
-export const getPreviousCenturyEnd: (date: DateLike) => Date = makeGetEdgeOfNeighbor(
-  getYear,
-  getCenturyEnd,
-  -100,
-);
+export const getPreviousCenturyEnd: (date: DateLike, offset?: number) => Date =
+  makeGetEdgeOfNeighbor(getYear, getCenturyEnd, -100);
 
 /**
  * Gets next century end date from a given date.
  *
  * @param {DateLike} date Date to get next century end from
+ * @param {number} [offset=100] Offset in years to calculate next century end from
  * @returns {Date} Next century end date
  */
-export const getNextCenturyEnd: (date: DateLike) => Date = makeGetEdgeOfNeighbor(
+export const getNextCenturyEnd: (date: DateLike, offset?: number) => Date = makeGetEdgeOfNeighbor(
   getYear,
   getCenturyEnd,
   100,
@@ -318,21 +316,20 @@ export function getDecadeStart(date: DateLike): Date {
  * Gets previous decade start date from a given date.
  *
  * @param {DateLike} date Date to get previous decade start from
+ * @param {number} [offset=-10] Offset in years to calculate previous decade start from
  * @returns {Date} Previous decade start date
  */
-export const getPreviousDecadeStart: (date: DateLike) => Date = makeGetEdgeOfNeighbor(
-  getYear,
-  getDecadeStart,
-  -10,
-);
+export const getPreviousDecadeStart: (date: DateLike, offset?: number) => Date =
+  makeGetEdgeOfNeighbor(getYear, getDecadeStart, -10);
 
 /**
  * Gets next decade start date from a given date.
  *
  * @param {DateLike} date Date to get next decade start from
+ * @param {number} [offset=10] Offset in years to calculate next decade start from
  * @returns {Date} Next decade start date
  */
-export const getNextDecadeStart: (date: DateLike) => Date = makeGetEdgeOfNeighbor(
+export const getNextDecadeStart: (date: DateLike, offset?: number) => Date = makeGetEdgeOfNeighbor(
   getYear,
   getDecadeStart,
   10,
@@ -350,21 +347,20 @@ export const getDecadeEnd: (date: DateLike) => Date = makeGetEnd(getNextDecadeSt
  * Gets previous decade end date from a given date.
  *
  * @param {DateLike} date Date to get previous decade end from
+ * @param {number} [offset=-10] Offset in years to calculate previous decade end from
  * @returns {Date} Previous decade end date
  */
-export const getPreviousDecadeEnd: (date: DateLike) => Date = makeGetEdgeOfNeighbor(
-  getYear,
-  getDecadeEnd,
-  -10,
-);
+export const getPreviousDecadeEnd: (date: DateLike, offset?: number) => Date =
+  makeGetEdgeOfNeighbor(getYear, getDecadeEnd, -10);
 
 /**
  * Gets next decade end date from a given date.
  *
  * @param {DateLike} date Date to get next decade end from
+ * @param {number} [offset=10] Offset in years to calculate next decade end from
  * @returns {Date} Next decade end date
  */
-export const getNextDecadeEnd: (date: DateLike) => Date = makeGetEdgeOfNeighbor(
+export const getNextDecadeEnd: (date: DateLike, offset?: number) => Date = makeGetEdgeOfNeighbor(
   getYear,
   getDecadeEnd,
   10,
@@ -403,21 +399,20 @@ export function getYearStart(date: DateLike): Date {
  * Gets previous year start date from a given date.
  *
  * @param {DateLike} date Date to get previous year start from
+ * @param {number} [offset=-1] Offset in years to calculate previous year start from
  * @returns {Date} Previous year start date
  */
-export const getPreviousYearStart: (date: DateLike) => Date = makeGetEdgeOfNeighbor(
-  getYear,
-  getYearStart,
-  -1,
-);
+export const getPreviousYearStart: (date: DateLike, offset?: number) => Date =
+  makeGetEdgeOfNeighbor(getYear, getYearStart, -1);
 
 /**
  * Gets next year start date from a given date.
  *
  * @param {DateLike} date Date to get next year start from
+ * @param {number} [offset=1] Offset in years to calculate next year start from
  * @returns {Date} Next year start date
  */
-export const getNextYearStart: (date: DateLike) => Date = makeGetEdgeOfNeighbor(
+export const getNextYearStart: (date: DateLike, offset?: number) => Date = makeGetEdgeOfNeighbor(
   getYear,
   getYearStart,
   1,
@@ -435,9 +430,10 @@ export const getYearEnd: (date: DateLike) => Date = makeGetEnd(getNextYearStart)
  * Gets previous year end date from a given date.
  *
  * @param {DateLike} date Date to get previous year end from
+ * @param {number} [offset=-1] Offset in years to calculate previous year end from
  * @returns {Date} Previous year end date
  */
-export const getPreviousYearEnd: (date: DateLike) => Date = makeGetEdgeOfNeighbor(
+export const getPreviousYearEnd: (date: DateLike, offset?: number) => Date = makeGetEdgeOfNeighbor(
   getYear,
   getYearEnd,
   -1,
@@ -447,9 +443,10 @@ export const getPreviousYearEnd: (date: DateLike) => Date = makeGetEdgeOfNeighbo
  * Gets next year end date from a given date.
  *
  * @param {DateLike} date Date to get next year end from
+ * @param {number} [offset=1] Offset in years to calculate next year end from
  * @returns {Date} Next year end date
  */
-export const getNextYearEnd: (date: DateLike) => Date = makeGetEdgeOfNeighbor(
+export const getNextYearEnd: (date: DateLike, offset?: number) => Date = makeGetEdgeOfNeighbor(
   getYear,
   getYearEnd,
   1,
@@ -500,20 +497,23 @@ export function getMonthStart(date: Date): Date {
  * Gets previous month start date from a given date.
  *
  * @param {Date} date Date to get previous month start from
+ * @param {number} [offset=-1] Offset in months to calculate previous month start from
  * @returns {Date} Previous month start date
  */
-export const getPreviousMonthStart: (date: Date) => Date = makeGetEdgeOfNeighborMonth(
-  getMonthStart,
-  -1,
-);
+export const getPreviousMonthStart: (date: Date, offset?: number) => Date =
+  makeGetEdgeOfNeighborMonth(getMonthStart, -1);
 
 /**
  * Gets next month start date from a given date.
  *
  * @param {Date} date Date to get next month start from
+ * @param {number} [offset=1] Offset in months to calculate next month start from
  * @returns {Date} Next month start date
  */
-export const getNextMonthStart: (date: Date) => Date = makeGetEdgeOfNeighborMonth(getMonthStart, 1);
+export const getNextMonthStart: (date: Date, offset?: number) => Date = makeGetEdgeOfNeighborMonth(
+  getMonthStart,
+  1,
+);
 
 /**
  * Gets month end date from a given date.
@@ -527,20 +527,23 @@ export const getMonthEnd: (date: Date) => Date = makeGetEnd(getNextMonthStart);
  * Gets previous month end date from a given date.
  *
  * @param {Date} date Date to get previous month end from
+ * @param {number} [offset=-1] Offset in months to calculate previous month end from
  * @returns {Date} Previous month end date
  */
-export const getPreviousMonthEnd: (date: Date) => Date = makeGetEdgeOfNeighborMonth(
-  getMonthEnd,
-  -1,
-);
+export const getPreviousMonthEnd: (date: Date, offset?: number) => Date =
+  makeGetEdgeOfNeighborMonth(getMonthEnd, -1);
 
 /**
  * Gets next month end date from a given date.
  *
  * @param {Date} date Date to get next month end from
+ * @param {number} [offset=1] Offset in months to calculate next month end from
  * @returns {Date} Next month end date
  */
-export const getNextMonthEnd: (date: Date) => Date = makeGetEdgeOfNeighborMonth(getMonthEnd, 1);
+export const getNextMonthEnd: (date: Date, offset?: number) => Date = makeGetEdgeOfNeighborMonth(
+  getMonthEnd,
+  1,
+);
 
 /**
  * Gets month start and end dates from a given date.
@@ -586,17 +589,25 @@ export function getDayStart(date: Date): Date {
  * Gets previous day start date from a given date.
  *
  * @param {Date} date Date to get previous day start from
+ * @param {number} [offset=-1] Offset in days to calculate previous day start from
  * @returns {Date} Previous day start date
  */
-export const getPreviousDayStart: (date: Date) => Date = makeGetEdgeOfNeighborDay(getDayStart, -1);
+export const getPreviousDayStart: (date: Date, offset?: number) => Date = makeGetEdgeOfNeighborDay(
+  getDayStart,
+  -1,
+);
 
 /**
  * Gets next day start date from a given date.
  *
  * @param {Date} date Date to get next day start from
+ * @param {number} [offset=1] Offset in days to calculate next day start from
  * @returns {Date} Next day start date
  */
-export const getNextDayStart: (date: Date) => Date = makeGetEdgeOfNeighborDay(getDayStart, 1);
+export const getNextDayStart: (date: Date, offset?: number) => Date = makeGetEdgeOfNeighborDay(
+  getDayStart,
+  1,
+);
 
 /**
  * Gets day end date from a given date.
@@ -610,17 +621,25 @@ export const getDayEnd: (date: Date) => Date = makeGetEnd(getNextDayStart);
  * Gets previous day end date from a given date.
  *
  * @param {DateLike} date Date to get previous day end from
+ * @param {number} [offset=-1] Offset in days to calculate previous day end from
  * @returns {Date} Previous day end date
  */
-export const getPreviousDayEnd: (date: Date) => Date = makeGetEdgeOfNeighborDay(getDayEnd, -1);
+export const getPreviousDayEnd: (date: Date, offset?: number) => Date = makeGetEdgeOfNeighborDay(
+  getDayEnd,
+  -1,
+);
 
 /**
  * Gets next day end date from a given date.
  *
  * @param {DateLike} date Date to get next day end from
+ * @param {number} [offset=1] Offset in days to calculate next day end from
  * @returns {Date} Next day end date
  */
-export const getNextDayEnd: (date: Date) => Date = makeGetEdgeOfNeighborDay(getDayEnd, 1);
+export const getNextDayEnd: (date: Date, offset?: number) => Date = makeGetEdgeOfNeighborDay(
+  getDayEnd,
+  1,
+);
 
 /**
  * Gets day start and end dates from a given date.
